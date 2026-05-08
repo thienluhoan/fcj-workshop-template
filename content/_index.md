@@ -13,7 +13,7 @@ chapter: false
 {{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Trung Thanh
+&emsp; **Full Name:** Nguyen Trung Thanh---- Test deploy
 
 &emsp; **Phone Number:** 09357966
 
