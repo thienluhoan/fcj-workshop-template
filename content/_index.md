@@ -15,7 +15,7 @@ chapter: false
 ### Student Information:
 &emsp; **Full Name:** Nguyen Trung Thanh
 
-&emsp; **Phone Number:** 0935796604
+&emsp; **Phone Number:** 09357966
 
 &emsp; **Email:** trungthanh070104@gmail.com
 
