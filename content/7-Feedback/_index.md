@@ -6,42 +6,47 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
+After completing the First Cloud AI Journey (FCAJ) internship, I would like to provide structured feedback based on my direct experience. The comments below are intended to acknowledge effective practices and suggest practical improvements for future cohorts.
 
 ### Overall Evaluation
 
 **1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+The working environment is professional, open, and highly collaborative. Team members consistently support one another when issues arise, which helps maintain delivery quality and timeline stability.
 
 **2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+Mentorship is a key strength of the program. The mentor provides clear goals, timely feedback, and guidance that encourages independent problem-solving instead of one-way instruction. The team admin also handles operational and documentation support efficiently, allowing interns to focus on learning and execution.
 
 **3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+Assigned tasks are well aligned with my Information Technology background while also extending into practical workflows used in real projects. This balance improves both technical understanding and workplace readiness.
 
 **4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+The program offers meaningful opportunities to strengthen both technical and professional skills. I improved project communication, time management, teamwork, and task planning through day-to-day execution and periodic mentor discussions.
 
 **5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+The team culture emphasizes respect, accountability, and transparency. During high-priority phases, cross-role collaboration is strong, and interns are included as active contributors rather than passive observers.
 
 **6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+Internship policies are clear and consistently applied. Flexible scheduling supports a healthy balance between academic commitments and project responsibilities, and internal training sessions provide added learning value.
 
 ---
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+### Detailed Feedback
+
+**Most satisfying aspect:**  
+The most valuable part of the internship is the trust-based working model. Being assigned real responsibilities with clear deliverables helped me improve ownership, decision-making, and quality control in my work.
+
+**Area for improvement:**  
+The onboarding process can be further improved by introducing a standardized starter package, including project context, workflow guidelines, tooling access instructions, and key contact points. A first-week checklist would also reduce ramp-up time and improve consistency across interns.
+
+**Recommendation level:**  
+I would confidently recommend this internship to other students because it combines practical project exposure, structured mentorship, and a supportive environment for professional growth.
 
 ---
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+
+- **Suggestion 1:** Hold biweekly mentor-intern review sessions focused on outcomes, improvement points, and next-step action plans.
+- **Suggestion 2:** Use a unified task handover format (objective, deliverables, quality criteria, and deadline) to reduce ambiguity and improve execution.
+- **Suggestion 3:** Add short internal sharing sessions on technical topics and workplace skills to accelerate intern development.
+- **Future expectation:** I would be glad to continue contributing in a more specialized role if future opportunities are available.
+- **Closing note:** Thank you to the FCAJ team, mentors, and coordinators for building a high-quality and development-focused internship experience.

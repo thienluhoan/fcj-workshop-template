@@ -5,40 +5,48 @@ weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud AI Journey, giúp team FCAJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
+Sau quá trình thực tập tại First Cloud AI Journey (FCAJ), tôi muốn chia sẻ một số cảm nhận và góp ý dựa trên trải nghiệm thực tế của mình, với mong muốn chương trình ngày càng hoàn thiện hơn trong các đợt tiếp theo.
 
 ### Đánh giá chung
 
 **1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCAJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+Môi trường làm việc chuyên nghiệp, cởi mở và có tính hỗ trợ cao. Trong quá trình thực tập, tôi nhận được sự phối hợp tích cực từ các thành viên trong nhóm khi xử lý các đầu việc kỹ thuật và vận hành. Nhờ đó, tiến độ công việc được duy trì ổn định và các vướng mắc được giải quyết nhanh.
 
-**2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+**2. Sự hỗ trợ của mentor và đội ngũ quản lý (Team Admin)**  
+Mentor cung cấp định hướng rõ ràng, giao mục tiêu cụ thể và phản hồi kịp thời theo từng giai đoạn. Cách hướng dẫn theo hướng gợi mở giúp tôi chủ động phân tích vấn đề thay vì phụ thuộc vào đáp án có sẵn. Đội ngũ Team Admin hỗ trợ hiệu quả ở các thủ tục và thông tin cần thiết, giúp thực tập sinh tập trung vào chuyên môn.
 
-**3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+**3. Mức độ phù hợp giữa công việc và định hướng chuyên môn**  
+Nhiệm vụ được giao phù hợp với nền tảng Công nghệ thông tin, đồng thời mở rộng sang các kỹ năng thực tiễn như quản lý tiến độ, phối hợp đa vai trò và chuẩn hóa tài liệu. Sự kết hợp giữa kiến thức học thuật và thực tế công việc giúp tôi nâng cao năng lực chuyên môn theo hướng ứng dụng.
 
-**4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+**4. Cơ hội học hỏi và phát triển kỹ năng**  
+Chương trình tạo điều kiện phát triển đồng thời kỹ năng chuyên môn và kỹ năng làm việc trong môi trường doanh nghiệp. Tôi cải thiện rõ khả năng giao tiếp công việc, lập kế hoạch cá nhân, quản lý thời gian và phối hợp nhóm. Các buổi trao đổi với mentor và anh/chị trong team giúp tôi xác định rõ hơn lộ trình phát triển nghề nghiệp.
 
-**5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+**5. Văn hóa doanh nghiệp và tinh thần đồng đội**  
+Văn hóa làm việc đề cao sự tôn trọng, minh bạch và trách nhiệm. Trong các giai đoạn cao điểm, các thành viên phối hợp chủ động và thống nhất mục tiêu chung, giúp thực tập sinh cảm thấy được tin tưởng và có vai trò thực chất trong dự án.
 
-**6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+**6. Chính sách và phúc lợi dành cho thực tập sinh**  
+Chính sách dành cho thực tập sinh được triển khai rõ ràng và nhất quán. Mô hình thời gian linh hoạt hỗ trợ cân bằng giữa học tập và công việc, đồng thời các hoạt động đào tạo nội bộ giúp nâng cao năng lực liên tục.
 
+---
 
-### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+### Phản hồi chi tiết
 
+**Điều hài lòng nhất trong quá trình thực tập:**  
+Điểm tích cực nổi bật là cách chương trình trao quyền cho thực tập sinh thông qua các nhiệm vụ có trách nhiệm rõ ràng và tiêu chí đầu ra cụ thể. Điều này giúp tôi phát triển tư duy độc lập, chủ động đề xuất giải pháp và cải thiện chất lượng công việc theo từng vòng phản hồi.
 
-### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+**Điểm cần cải thiện đối với chương trình thực tập:**  
+Để tối ưu hiệu quả onboarding, có thể bổ sung bộ tài liệu nhập môn chuẩn gồm: mục tiêu chương trình, quy trình làm việc, công cụ sử dụng, cấu trúc dự án và đầu mối hỗ trợ. Kèm theo đó, nên có checklist cho tuần đầu để thực tập sinh nắm rõ các mốc cần hoàn thành và rút ngắn thời gian thích nghi.
+
+**Mức độ sẵn sàng giới thiệu chương trình cho bạn bè:**  
+Tôi sẵn sàng giới thiệu chương trình cho bạn bè vì đây là môi trường phù hợp để tích lũy kinh nghiệm thực tế, rèn tác phong chuyên nghiệp và nhận được sự hỗ trợ đúng mức từ mentor và đội ngũ vận hành.
+
+---
+
+### Đề xuất và Định hướng tương lai
+
+- **Đề xuất cải thiện 1:** Tổ chức phiên review định kỳ 2 tuần/lần giữa mentor và thực tập sinh, tập trung vào kết quả đạt được, điểm cần cải thiện và kế hoạch hành động cho giai đoạn tiếp theo.
+- **Đề xuất cải thiện 2:** Chuẩn hóa mẫu tài liệu bàn giao nhiệm vụ (mục tiêu, đầu ra, tiêu chí đánh giá, hạn hoàn thành) để giảm sai lệch kỳ vọng và nâng cao chất lượng thực thi.
+- **Đề xuất cải thiện 3:** Triển khai thêm các buổi chia sẻ ngắn theo chủ đề kỹ thuật hoặc kỹ năng nghề nghiệp để tăng tốc quá trình học hỏi của thực tập sinh mới.
+- **Định hướng cá nhân:** Tôi mong muốn tiếp tục đồng hành với chương trình ở vai trò chuyên sâu hơn nếu có cơ hội, đồng thời đóng góp vào các hoạt động hỗ trợ thế hệ thực tập sinh tiếp theo.
+- **Lời cảm ơn:** Tôi trân trọng cảm ơn ban tổ chức FCAJ, mentor và toàn bộ đội ngũ đã tạo ra một môi trường thực tập chuyên nghiệp, tích cực và giàu giá trị phát triển.
