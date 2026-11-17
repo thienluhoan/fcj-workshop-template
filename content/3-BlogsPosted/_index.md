@@ -8,7 +8,7 @@ pre: " <b> 3. </b> "
 
 My technical articles published in [AWS Study Group VN](https://www.facebook.com/groups/awsstudygroupfcj).
 
-### [Blog 1 - Load Balancing and Database Bottlenecks]({{< relref "3-BlogsPosted/3.1-Blog1" >}})
+### [Blog 1 - Load Balancing and Database Bottlenecks]({{< relref "3-blogsposted/3.1-blog1" >}})
 
 **Published:** 8 November 2026 · [Facebook post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2325121871586105)
 
