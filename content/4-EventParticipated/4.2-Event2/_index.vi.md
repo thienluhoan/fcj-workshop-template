@@ -16,6 +16,7 @@ pre: " <b> 4.2. </b> "
 | **Hình thức** | Watch party tại TP.HCM, theo dõi chương trình phát từ Hà Nội |
 | **Địa điểm tham dự** | Tầng 26, Bitexco Financial Tower, 2 Hải Triều, TP.HCM |
 | **Vai trò** | Người tham dự watch party |
+| **Ghi nhận tham dự** | Sự kiện và một buổi chuyên cần văn phòng tại Bitexco |
 | **Nguồn** | [Trang sự kiện AWS](https://aws.amazon.com/vi/events/cloud-day-hanoi/) · [Thông tin watch party](https://apj.awsevents.com/sites/aws-cloud-day-hanoi-watch-party-attendee) |
 
 Tôi tham gia watch party tại TP.HCM và theo dõi keynote phát từ Hà Nội. Các phần chia sẻ đề cập đến ứng dụng Cloud và AI trong doanh nghiệp, nền tảng vận hành dịch vụ, bảo mật và yêu cầu kiểm chứng khi AI tham gia vào quá trình phát triển phần mềm.
