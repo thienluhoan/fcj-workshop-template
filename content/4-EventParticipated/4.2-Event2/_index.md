@@ -16,6 +16,7 @@ pre: " <b> 4.2. </b> "
 | **Format** | Ho Chi Minh City watch party following the program streamed from Hanoi |
 | **Location** | 26th floor, Bitexco Financial Tower, 2 Hai Trieu Street, Ho Chi Minh City |
 | **Role** | Watch party attendee |
+| **Attendance record** | Event participation and one office attendance at Bitexco |
 | **Sources** | [AWS event page](https://aws.amazon.com/events/cloud-day-hanoi/) · [Watch party information](https://apj.awsevents.com/sites/aws-cloud-day-hanoi-watch-party-attendee) |
 
 I attended the Ho Chi Minh City watch party and followed the keynote streamed from Hanoi. The sessions discussed enterprise cloud and AI use, the foundations behind reliable services, security, and the need for validation as AI becomes part of software development.
