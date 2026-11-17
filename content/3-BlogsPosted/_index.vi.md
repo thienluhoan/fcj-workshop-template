@@ -8,7 +8,7 @@ pre: " <b> 3. </b> "
 
 Các bài viết kỹ thuật của tôi đã đăng trong [AWS Study Group VN](https://www.facebook.com/groups/awsstudygroupfcj).
 
-### [Blog 1 - Load Balancing và điểm nghẽn database]({{% relref "3-BlogsPosted/3.1-Blog1/_index.vi.md" %}})
+### [Blog 1 - Load Balancing và điểm nghẽn database]({{< relref "3-BlogsPosted/3.1-Blog1" >}})
 
 **Ngày đăng:** 08/11/2026 · [Bài đăng Facebook](https://www.facebook.com/groups/awsstudygroupfcj/posts/2325121871586105)
 

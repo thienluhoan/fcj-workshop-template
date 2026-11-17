@@ -31,10 +31,10 @@ chapter: false
 
 ### Report Content
 
-1.  [Worklog](1-Worklog/)
-2.  [Proposal](2-Proposal/)
-3.  [BlogsPosted](3-BlogsPosted/)
-4.  [Events Participated](4-EventParticipated/)
-5.  [Workshop](5-Workshop/)
-6.  [Self-evaluation](6-Self-evaluation/)
-7.  [Sharing and Feedback](7-Feedback/)
+1.  [Worklog]({{< relref "1-Worklog" >}})
+2.  [Proposal]({{< relref "2-Proposal" >}})
+3.  [BlogsPosted]({{< relref "3-BlogsPosted" >}})
+4.  [Events Participated]({{< relref "4-EventParticipated" >}})
+5.  [Workshop]({{< relref "5-Workshop" >}})
+6.  [Self-evaluation]({{< relref "6-Self-evaluation" >}})
+7.  [Sharing and Feedback]({{< relref "7-Feedback" >}})
