@@ -1,33 +1,32 @@
 ---
 title: "Workshop"
-date: 2024-01-01
 weight: 5
 chapter: false
-pre: " <b> 5. </b> "
+pre: "<b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Triển khai Bite to Business lên AWS
 
+Đây là **workshop thực hành về hạ tầng** cho ứng dụng bán thực phẩm **Bite to Business (BTB)**. BTB trực tiếp bán hàng cho cá nhân/hộ gia đình và doanh nghiệp/hợp tác xã; **không phải sàn nhiều người bán**. Backend dùng Spring Boot modular monolith; frontend dùng React/TypeScript.
 
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+**Phạm vi của cá nhân:** Amazon VPC, AWS IAM, AWS Budgets, Amazon ECR, Amazon S3, AWS Secrets Manager, Application Load Balancer, Amazon ECS với AWS Fargate, AWS Certificate Manager, Amazon CloudFront, Amazon Route 53, AWS WAF và Amazon CloudWatch Logs.
 
-#### Tổng quan
+**Không hướng dẫn triển khai phần bạn cùng nhóm:** Amazon Bedrock, SQS, SES, CodePipeline/CodeBuild, CloudWatch Metrics/Alarms, CloudTrail, NAT Gateway và VPC endpoints. Các dịch vụ này chỉ xuất hiện trong **sơ đồ tổng thể** để giải thích kết nối.
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+**Documentation status / Trạng thái tài liệu:** Draft instructions. Resource names, values, test results, demo links and screenshots must be replaced with real evidence before submission. / Bản nháp hướng dẫn. Cần thay tên tài nguyên, thông số, kết quả kiểm thử, link demo và ảnh chụp bằng minh chứng thực tế trước khi nộp.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+## Mục lục
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+1. [Tổng quan](5.1-overview/)
+2. [Chuẩn bị](5.2-prerequisites/)
+3. [Kiến trúc và luồng dữ liệu](5.3-architecture/)
+4. [Thiết lập nền tảng](5.4-foundation/)
+5. [Container và lưu trữ](5.5-containers-storage/)
+6. [Triển khai Backend](5.6-backend/)
+7. [Phân phối web và bảo mật](5.7-web-security/)
+8. [Nhật ký và xử lý lỗi](5.8-logging/)
+9. [Kiểm thử, xác nhận và demo](5.9-testing/)
+10. [Dự toán và tối ưu chi phí](5.10-cost/)
+11. [Dọn dẹp tài nguyên](5.11-cleanup/)
 
-#### Nội dung
-
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+**Trước khi nộp:** Tự vẽ và kiểm tra sơ đồ AWS bằng icon chính thức; trực tiếp thực hành, ghi lại ảnh AWS Console, output lệnh, kết quả đo, bảng dự toán chi phí và minh chứng demo. Bản nháp và workshop mẫu không thay thế cho triển khai thực tế.

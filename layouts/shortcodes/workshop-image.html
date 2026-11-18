@@ -1,0 +1,5 @@
+{{- $src := .Get "src" | relURL -}}
+<figure class="workshop-image">
+  <img src="{{ $src }}" alt="{{ .Get "alt" }}" loading="lazy" />
+  {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -11,24 +12,22 @@ permissions:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout source code
+      - name: Checkout site and Hugo theme submodules
         uses: actions/checkout@v4
-
+        with:
+          submodules: recursive
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.134.3"
           extended: true
-
-      - name: Build website
+      - name: Build bilingual Hugo site
         run: hugo --minify
-
-      - name: Deploy to GitHub Pages
+      - name: Publish to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: gh-pages # <- đảm bảo đúng tên nhánh bạn dùng để deploy
-          force_orphan: true # <- đảm bảo xóa lịch sử cũ ở nhánh gh-pages (giảm lỗi)
+          publish_branch: gh-pages
+          force_orphan: true

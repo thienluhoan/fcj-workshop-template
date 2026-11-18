@@ -1,31 +1,32 @@
 ---
 title: "Workshop"
-date: 2024-01-01
 weight: 5
 chapter: false
-pre: " <b> 5. </b> "
+pre: "<b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Deploying Bite to Business on AWS
 
-#### Overview
+This **hands-on infrastructure workshop** documents deployment of the **Bite to Business (BTB)** food-commerce web application. BTB is the direct seller to individuals/households and business customers; it is **not** a multi-vendor marketplace. The backend is a modular-monolith Spring Boot application; the frontend is React/TypeScript.
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+**Scope:** Amazon VPC, AWS IAM, AWS Budgets, Amazon ECR, Amazon S3, AWS Secrets Manager, Application Load Balancer, Amazon ECS with AWS Fargate, AWS Certificate Manager, Amazon CloudFront, Amazon Route 53, AWS WAF, and Amazon CloudWatch Logs.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+**Teammate-owned services are excluded from this lab:** Amazon Bedrock, SQS, SES, CodePipeline/CodeBuild, CloudWatch Metrics/Alarms, CloudTrail, NAT Gateway and VPC endpoints. They may appear in the **shared architecture** for context only.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+**Documentation status / Trạng thái tài liệu:** Draft instructions. Resource names, values, test results, demo links and screenshots must be replaced with real evidence before submission. / Bản nháp hướng dẫn. Cần thay tên tài nguyên, thông số, kết quả kiểm thử, link demo và ảnh chụp bằng minh chứng thực tế trước khi nộp.
 
-#### Content
+## Contents
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Overview](5.1-overview/)
+2. [Prerequisites](5.2-prerequisites/)
+3. [Architecture & Data Flow](5.3-architecture/)
+4. [Foundation Setup](5.4-foundation/)
+5. [Container & Storage](5.5-containers-storage/)
+6. [Backend Deployment](5.6-backend/)
+7. [Web Delivery & Security](5.7-web-security/)
+8. [Logging & Troubleshooting](5.8-logging/)
+9. [Testing, Validation & Demo](5.9-testing/)
+10. [Cost Estimation & Optimization](5.10-cost/)
+11. [Cleanup](5.11-cleanup/)
+
+**Before submission:** personally reconstruct and verify the AWS diagram using official AWS icons; perform the deployment; record actual Console screenshots, command outputs, measured results, cost calculator estimates, and live-demo evidence. The sample site and this draft are not proof that AWS resources exist.
