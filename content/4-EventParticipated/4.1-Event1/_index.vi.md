@@ -1,125 +1,177 @@
----
-title: "Event 1"
-date: 2024-01-01
-weight: 1
-chapter: false
-pre: " <b> 4.1. </b> "
----
+titleEvent 1
+date2026-09-26
+weight1
+chapterfalse
+pre\<b> 4.2. \</b>
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Bài thu hoạch sự kiện "KICKOFF FCAJ BUILDRATHON 2026 (SEASON 01)"
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+## Mục Đích Của Sự Kiện
 
-### Mục Đích Của Sự Kiện
+Sự kiện **Kickoff FCAJ Buildrathon 2026 Season 01** được tổ chức nhằm khởi động hành trình phát triển các giải pháp công nghệ thực tiễn trong lĩnh vực AI và Cloud. Đây cũng là cơ hội để cộng đồng công nghệ tiếp cận những xu hướng mới, trao đổi kiến thức và phát triển kỹ năng thông qua các thử thách thực tế.
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+Các mục tiêu chính của sự kiện:
 
-### Danh Sách Diễn Giả
+- Cập nhật kiến thức về **AWS Cloud, Generative AI và Agentic AI**.
+- Giới thiệu tư duy thiết kế và xây dựng AI Agent trong môi trường thực tế.
+- Tạo cơ hội thực hành thông qua các thử thách phát triển giải pháp AI.
+- Kết nối cộng đồng yêu thích công nghệ với các chuyên gia trong ngành.
+- Định hướng phát triển nghề nghiệp và mở rộng cơ hội việc làm trong lĩnh vực IT.
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+## Thông Tin Sự Kiện
 
-### Nội Dung Nổi Bật
+- **Tên sự kiện:** Kickoff FCAJ Buildrathon 2026 (Season 01).
+- **Thời gian:** 09:00 – 12:00, ngày 26/09/2026.
+- **Địa điểm:** Tầng 26, Bitexco Financial Tower, TP. Hồ Chí Minh.
+- **Đơn vị tổ chức:** AWS Study Group.
+- **Đơn vị đồng hành:** CMC Global.
+- **Quy mô:** Hơn 300 người tham dự.
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+## Nội Dung Nổi Bật
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+### 1. Tổng Quan Về AWS Cloud Và Generative AI
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+Sự kiện mang đến góc nhìn tổng quan về sự phát triển của công nghệ điện toán đám mây và trí tuệ nhân tạo tạo sinh.
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- **AWS Cloud:** Tìm hiểu vai trò của điện toán đám mây trong việc xây dựng, triển khai và mở rộng các ứng dụng hiện đại.
+- **Generative AI:** Tìm hiểu khả năng ứng dụng AI tạo sinh trong việc xử lý thông tin, hỗ trợ người dùng và giải quyết các bài toán thực tế.
+- **Agentic AI:** Tiếp cận xu hướng AI Agent có khả năng phân tích yêu cầu, lập kế hoạch và thực hiện nhiệm vụ thông qua sự kết hợp giữa mô hình AI và các công cụ hỗ trợ.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+### 2. Talkshow "The Thinking Behind Building The Bot"
 
-#### Domain-Driven Design (DDD)
+Đây là một trong những nội dung trọng tâm của chương trình, tập trung vào tư duy xây dựng một hệ thống Bot và AI Agent có khả năng ứng dụng trong môi trường doanh nghiệp.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+Các nội dung nổi bật:
 
-#### Event-Driven Architecture
+- **AI Agent Architecture:** Tìm hiểu cách xây dựng nền tảng kiến trúc cho một AI Agent, từ việc xác định mục tiêu, thiết kế thành phần đến tổ chức quy trình hoạt động.
+- **Problem Solving:** Phân tích các vấn đề thực tế khi xây dựng Bot và cách lựa chọn giải pháp phù hợp.
+- **Enterprise AI Agent:** Tìm hiểu những yêu cầu khi triển khai AI Agent trong doanh nghiệp, đặc biệt là tính ổn định, khả năng mở rộng và hiệu quả vận hành.
+- **Optimization:** Nhận thức được tầm quan trọng của việc tối ưu AI Agent nhằm nâng cao chất lượng phản hồi và hiệu quả xử lý công việc.
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+### 3. Phân Tích Và Giải Quyết Các Thử Thách Thực Tế
 
-#### Compute Evolution
+Thông qua các phần chia sẻ và phân tích thử thách, người tham dự có cơ hội tiếp cận cách giải quyết những bài toán công nghệ thực tế.
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+- Phân tích yêu cầu và xác định vấn đề cần giải quyết.
+- Xây dựng ý tưởng và lựa chọn kiến trúc phù hợp.
+- Vận dụng kiến thức AI và Cloud để phát triển giải pháp.
+- Đánh giá tính khả thi và khả năng ứng dụng của sản phẩm.
 
-#### Amazon Q Developer
+Điểm đáng chú ý là chương trình không chỉ tập trung vào lý thuyết mà còn khuyến khích người tham gia tư duy như một kỹ sư đang giải quyết các bài toán thực tế.
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+### 4. Hands-on: Xây Dựng Giải Pháp AI Agent
 
-### Những Gì Học Được
+Một nội dung quan trọng khác là định hướng thực hành xây dựng AI Agent dưới sự hướng dẫn của các chuyên gia.
 
-#### Tư Duy Thiết Kế
+Quá trình xây dựng một AI Agent có thể được triển khai qua các bước cơ bản:
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+1. **Problem Identification:** Xác định bài toán và mục tiêu mà AI Agent cần giải quyết.
+2. **Model Selection:** Lựa chọn mô hình AI phù hợp với yêu cầu.
+3. **Workflow Design:** Thiết kế luồng xử lý và cách Agent tương tác với người dùng.
+4. **Tool Integration:** Kết hợp các công cụ cần thiết để mở rộng khả năng thực thi.
+5. **Testing & Optimization:** Kiểm thử và đánh giá kết quả hoạt động để cải thiện hiệu suất.
 
-#### Kiến Trúc Kỹ Thuật
+### 5. Networking Và Định Hướng Nghề Nghiệp
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+Bên cạnh kiến thức kỹ thuật, sự kiện còn tạo cơ hội kết nối với các chuyên gia và đại diện tuyển dụng đến từ CMC Global.
 
-#### Chiến Lược Hiện Đại Hóa
+- Giao lưu với những người có cùng định hướng phát triển trong lĩnh vực AI và Cloud.
+- Trao đổi kinh nghiệm học tập và làm việc trong ngành công nghệ.
+- Tìm hiểu yêu cầu tuyển dụng và kỹ năng cần thiết đối với các vị trí IT.
+- Có cơ hội trao đổi trực tiếp với bộ phận HR của CMC Global thông qua hoạt động kết nối tại sự kiện.
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+## Những Gì Học Được
 
-### Ứng Dụng Vào Công Việc
+### 1. Kiến Thức Về AI Và Generative AI
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+- Hiểu rõ hơn sự khác biệt giữa Generative AI và AI Agent.
+- Nhận thức được khả năng ứng dụng AI tạo sinh vào các bài toán thực tế.
+- Hiểu rằng AI Agent không chỉ dừng lại ở việc tạo ra câu trả lời mà còn có thể thực hiện các nhiệm vụ thông qua công cụ và quy trình được thiết kế phù hợp.
+- Biết được tầm quan trọng của việc xác định đúng bài toán trước khi lựa chọn mô hình AI.
 
-### Trải nghiệm trong event
+### 2. Tư Duy Xây Dựng AI Agent
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+- **Problem-first approach:** Bắt đầu từ việc xác định vấn đề cần giải quyết thay vì lựa chọn công nghệ một cách máy móc.
+- **System Architecture:** Cần có kiến trúc rõ ràng để tổ chức các thành phần của AI Agent.
+- **Tool Integration:** Kết hợp mô hình AI với các công cụ bên ngoài giúp mở rộng khả năng xử lý và thực thi nhiệm vụ.
+- **Optimization:** Liên tục kiểm thử, đánh giá và cải thiện hiệu suất của Agent.
+- **Practical Thinking:** Kết hợp kiến thức lý thuyết với thực hành để tạo ra sản phẩm có giá trị sử dụng.
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+### 3. Kiến Thức Về AWS Cloud
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+- Hiểu thêm vai trò của AWS Cloud trong việc triển khai các ứng dụng AI.
+- Nhận thức được lợi ích của Cloud trong khả năng mở rộng và quản lý tài nguyên.
+- Hiểu rằng việc lựa chọn dịch vụ Cloud cần dựa trên yêu cầu kỹ thuật, chi phí và mục tiêu của hệ thống.
+- Có thêm động lực tìm hiểu sâu hơn về hệ sinh thái dịch vụ AWS phục vụ cho các dự án AI.
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
+### 4. Định Hướng Phát Triển Nghề Nghiệp
 
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+- Kiến thức chuyên môn cần đi đôi với khả năng thực hành và giải quyết vấn đề.
+- Portfolio với các dự án thực tế là một yếu tố quan trọng để chứng minh năng lực.
+- Kỹ năng giao tiếp và làm việc nhóm cần thiết khi tham gia các dự án công nghệ.
+- Chủ động kết nối với cộng đồng và chuyên gia giúp mở rộng cơ hội học tập cũng như nghề nghiệp.
 
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+## Ứng Dụng Vào Công Việc Và Học Tập
 
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+Sau khi tham gia sự kiện, tôi có thể áp dụng những kiến thức tiếp thu được vào quá trình học tập và phát triển theo định hướng AI Engineer:
+
+- **Nghiên cứu AI Agent:** Tìm hiểu sâu hơn về kiến trúc, cách thức hoạt động và quy trình xây dựng một AI Agent hoàn chỉnh.
+- **Phát triển dự án thực tế:** Xây dựng một ứng dụng AI Agent có khả năng giải quyết một bài toán cụ thể thay vì chỉ dừng lại ở các mô hình thử nghiệm đơn giản.
+- **Kết hợp AI với AWS:** Tìm hiểu cách sử dụng các dịch vụ AWS để triển khai và vận hành ứng dụng AI trên môi trường Cloud.
+- **Thực hành và tối ưu:** Kiểm thử khả năng phản hồi, độ chính xác và hiệu quả hoạt động của Agent.
+- **Phát triển Portfolio:** Hoàn thiện các dự án cá nhân, chú trọng vào khả năng ứng dụng thực tế và kiến trúc hệ thống.
+- **Nâng cao kỹ năng nghề nghiệp:** Chủ động tham gia các hoạt động cộng đồng, workshop và chương trình thực chiến để tích lũy kinh nghiệm.
+
+## Trải Nghiệm Trong Event
+
+Tham gia sự kiện Kickoff FCAJ Buildrathon 2026 Season 01 tại văn phòng AWS Việt Nam là một trải nghiệm đáng nhớ và bổ ích. Với sự tham gia của hơn 300 người yêu thích công nghệ, chương trình mang đến một môi trường học tập, trao đổi và kết nối sôi nổi.
+
+### 1. Tiếp Cận Môi Trường Công Nghệ Thực Tế
+
+- Có cơ hội tham gia một sự kiện công nghệ được tổ chức tại văn phòng AWS Việt Nam.
+- Được tiếp xúc với cộng đồng những người có chung niềm đam mê về AI, Cloud và phát triển phần mềm.
+- Hiểu rõ hơn cách các kiến thức công nghệ được kết nối với nhu cầu thực tế của doanh nghiệp.
+
+### 2. Học Hỏi Từ Các Chuyên Gia
+
+- Lắng nghe những chia sẻ về tư duy xây dựng AI Agent trong talkshow "The Thinking Behind Building The Bot".
+- Tiếp cận các góc nhìn thực tế về kiến trúc hệ thống và cách tối ưu giải pháp AI.
+- Có thêm nhận thức về những khó khăn mà kỹ sư cần giải quyết khi đưa AI vào môi trường doanh nghiệp.
+
+### 3. Trải Nghiệm Các Thử Thách Thực Chiến
+
+- Được giới thiệu và phân tích những thử thách liên quan đến việc xây dựng giải pháp AI Agent.
+- Hiểu hơn về cách chuyển đổi một yêu cầu thực tế thành ý tưởng và giải pháp kỹ thuật.
+- Nhận ra tầm quan trọng của việc kết hợp kiến thức chuyên môn với khả năng thực hành và tư duy giải quyết vấn đề.
+
+### 4. Kết Nối Và Phát Triển Nghề Nghiệp
+
+- Có cơ hội giao lưu với cộng đồng AWS Study Group và những người cùng định hướng phát triển trong lĩnh vực AI & Cloud.
+- Tìm hiểu thêm về nhu cầu tuyển dụng và những kỹ năng doanh nghiệp quan tâm.
+- Hoạt động kết nối với HR của CMC Global giúp tôi có thêm góc nhìn về định hướng nghề nghiệp và cơ hội phát triển trong ngành IT.
+
+## Bài Học Rút Ra
+
+Qua sự kiện, tôi nhận thấy rằng để phát triển một sản phẩm AI có giá trị thực tế, việc sử dụng một mô hình AI tốt là chưa đủ. Người phát triển cần có tư duy hệ thống, hiểu rõ bài toán, biết cách kết hợp các công cụ và lựa chọn hạ tầng phù hợp.
+
+Một số bài học quan trọng:
+
+- AI Agent là một hướng phát triển tiềm năng, mở rộng khả năng ứng dụng AI từ xử lý thông tin sang thực hiện các nhiệm vụ cụ thể.
+- AWS Cloud đóng vai trò quan trọng trong việc xây dựng và triển khai các hệ thống AI có khả năng mở rộng.
+- Thực hành thông qua các dự án và thử thách thực tế là cách hiệu quả để củng cố kiến thức.
+- Kỹ năng chuyên môn, tư duy giải quyết vấn đề và khả năng làm việc nhóm cần được phát triển đồng thời.
+- Việc chủ động tham gia cộng đồng công nghệ giúp tiếp cận kiến thức mới và mở rộng cơ hội nghề nghiệp.
+
+## Một Số Hình Ảnh Khi Tham Gia Sự Kiện
+
+Thêm các hình ảnh thực tế trong quá trình tham gia sự kiện:
+<img width="2561" height="1921" alt="image" src="https://github.com/user-attachments/assets/9f6cbbb6-0bc5-46bc-a81b-1ba5e361e85b" />
+
+
+## Tổng Kết
+
+Sự kiện Kickoff FCAJ Buildrathon 2026 Season 01 không chỉ giúp tôi cập nhật thêm kiến thức về AWS Cloud, Generative AI và AI Agent mà còn mang đến cơ hội tiếp cận tư duy xây dựng sản phẩm công nghệ theo hướng thực tiễn.
+
+Đặc biệt, thông qua những chia sẻ từ chuyên gia và hoạt động kết nối tại sự kiện, tôi nhận thức rõ hơn về khoảng cách giữa kiến thức lý thuyết và khả năng triển khai một sản phẩm thực tế.
+
+Đây cũng là động lực để tôi tiếp tục trau dồi kiến thức AWS, nghiên cứu sâu hơn về AI Agent và phát triển các dự án thực hành nhằm chuẩn bị tốt hơn cho định hướng trở thành **AI Engineer** trong tương lai.

@@ -1,126 +1,179 @@
----
-title: "Event 1"
-date: 2024-01-01
-weight: 1
-chapter: false
-pre: " <b> 4.1. </b> "
----
+titleEvent 1
+date2026-09-26
+weight1
+chapterfalse
+pre\<b> 4.2. \</b>
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Event Report: KICKOFF FCAJ BUILDRATHON 2026 (SEASON 01)
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+## Event Objectives
 
-### Event Objectives
+The **Kickoff FCAJ Buildrathon 2026 Season 01** event was organized to launch a journey focused on developing practical technology solutions in the fields of Artificial Intelligence (AI) and Cloud Computing. It also provided an opportunity for the technology community to explore emerging trends, exchange knowledge, and develop practical skills through real-world challenges.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+The main objectives of the event were:
 
-### Speakers
+- Update knowledge about **AWS Cloud, Generative AI, and Agentic AI**.
+- Introduce the principles of designing and building AI Agents for real-world applications.
+- Provide hands-on learning opportunities through AI solution development challenges.
+- Connect technology enthusiasts with industry experts.
+- Support career orientation and expand employment opportunities in the IT industry.
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+## Event Information
 
-### Key Highlights
+- **Event Name:** Kickoff FCAJ Buildrathon 2026 (Season 01).
+- **Date:** September 26, 2026.
+- **Time:** 09:00 AM – 12:00 PM.
+- **Location:** 26th Floor, Bitexco Financial Tower, Ho Chi Minh City, Vietnam.
+- **Organizer:** AWS Study Group.
+- **Partner:** CMC Global.
+- **Attendance:** More than 300 participants.
 
-#### Identifying the drawbacks of legacy application architecture
+## Key Highlights
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+### 1. Overview of AWS Cloud and Generative AI
 
-#### Transitioning to modern application architecture – Microservices
+The event provided an overview of the development of cloud computing and Generative Artificial Intelligence.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- **AWS Cloud:** Explored the role of cloud computing in building, deploying, and scaling modern applications.
+- **Generative AI:** Learned about the ability of generative AI to process information, assist users, and solve real-world problems.
+- **Agentic AI:** Explored the emerging trend of AI Agents that can analyze requirements, plan tasks, and execute actions through the integration of AI models and external tools.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+### 2. Talkshow: "The Thinking Behind Building The Bot"
 
-#### Domain-Driven Design (DDD)
+This was one of the main sessions of the event, focusing on the mindset and technical approaches required to build Bots and AI Agents for enterprise environments.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+Key topics included:
 
-#### Event-Driven Architecture
+- **AI Agent Architecture:** Understanding how to establish an AI Agent architecture, from defining objectives and designing components to organizing workflows.
+- **Problem Solving:** Analyzing real-world challenges when developing Bots and selecting appropriate technical solutions.
+- **Enterprise AI Agent:** Exploring the requirements for deploying AI Agents in enterprise environments, particularly reliability, scalability, and operational efficiency.
+- **Optimization:** Understanding the importance of optimizing AI Agents to improve response quality and task execution efficiency.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+### 3. Analyzing and Solving Real-World Challenges
 
-#### Compute Evolution
+Through presentations and challenge discussions, participants had the opportunity to explore practical approaches to solving technology-related problems.
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+- Analyze requirements and identify the problems that need to be addressed.
+- Develop ideas and select appropriate system architectures.
+- Apply AI and Cloud knowledge to develop technical solutions.
+- Evaluate the feasibility and practical value of proposed products.
 
-#### Amazon Q Developer
+One important takeaway was that the program encouraged participants to think like engineers solving real-world problems rather than focusing solely on theoretical knowledge.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+### 4. Hands-on: Building AI Agent Solutions
 
-### Key Takeaways
+Another important aspect of the event was the introduction to practical AI Agent development under expert guidance.
 
-#### Design Mindset
+A typical AI Agent development process can involve the following steps:
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+1. **Problem Identification:** Define the problem and objectives that the AI Agent needs to solve.
+2. **Model Selection:** Select an appropriate AI model based on the requirements.
+3. **Workflow Design:** Design the processing workflow and how the Agent interacts with users.
+4. **Tool Integration:** Integrate external tools to extend the Agent's capabilities.
+5. **Testing & Optimization:** Test and evaluate the Agent's performance to improve its effectiveness.
 
-#### Technical Architecture
+### 5. Networking and Career Development
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+In addition to technical knowledge, the event provided opportunities to connect with industry experts and recruitment representatives from CMC Global.
 
-#### Modernization Strategy
+- Interact with people who share similar interests in AI and Cloud technologies.
+- Exchange knowledge and experiences about studying and working in the technology industry.
+- Explore recruitment requirements and essential skills for IT positions.
+- Have opportunities to communicate directly with CMC Global's HR representatives through networking activities.
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+## Key Takeaways
 
-### Applying to Work
+### 1. Knowledge of AI and Generative AI
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- Better understand the differences between Generative AI and AI Agents.
+- Recognize the potential applications of Generative AI in real-world problems.
+- Understand that AI Agents go beyond generating responses and can perform tasks through integrated tools and predefined workflows.
+- Recognize the importance of identifying the right problem before selecting an AI model.
 
-### Event Experience
+### 2. AI Agent Development Mindset
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+- **Problem-first Approach:** Start by identifying the problem that needs to be solved instead of choosing technologies without a clear purpose.
+- **System Architecture:** Establish a clear architecture to organize the different components of an AI Agent.
+- **Tool Integration:** Integrate AI models with external tools to extend their processing and execution capabilities.
+- **Optimization:** Continuously test, evaluate, and improve Agent performance.
+- **Practical Thinking:** Combine theoretical knowledge with hands-on experience to create useful and practical solutions.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+### 3. AWS Cloud Knowledge
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+- Better understand the role of AWS Cloud in deploying AI applications.
+- Recognize the benefits of Cloud computing in terms of scalability and resource management.
+- Understand that selecting Cloud services should depend on technical requirements, costs, and system objectives.
+- Gain additional motivation to explore the AWS ecosystem and its services for AI applications.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+### 4. Career Development Orientation
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+- Technical knowledge should be accompanied by practical experience and problem-solving skills.
+- Building a portfolio of real-world projects is important for demonstrating technical capabilities.
+- Communication and teamwork skills are essential when participating in technology projects.
+- Actively connecting with the technology community and industry experts can create more learning and career opportunities.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+## Application to Work and Study
 
-#### Some event photos
-*Add your event photos here*  
+After attending the event, I identified several ways to apply the knowledge gained to my learning process and career development as a future AI Engineer:
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+- **AI Agent Research:** Explore AI Agent architecture, operating principles, and the development process in greater depth.
+- **Practical Project Development:** Build an AI Agent application that solves a specific real-world problem instead of focusing only on simple model experiments.
+- **AI and AWS Integration:** Learn how to use AWS services to deploy and operate AI applications in a Cloud environment.
+- **Testing and Optimization:** Evaluate the Agent's response quality, accuracy, and operational efficiency.
+- **Portfolio Development:** Improve personal projects by focusing on practical applications and system architecture.
+- **Professional Skill Development:** Actively participate in technology communities, workshops, and practical programs to gain more experience.
+
+## Event Experience
+
+Attending Kickoff FCAJ Buildrathon 2026 Season 01 at the AWS Vietnam office was a memorable and valuable experience. With more than 300 technology enthusiasts participating, the event created an energetic environment for learning, knowledge sharing, and networking.
+
+### 1. Exposure to a Real Technology Environment
+
+- Had the opportunity to attend a technology event hosted at the AWS Vietnam office.
+- Connected with a community of people who share a passion for AI, Cloud computing, and software development.
+- Gained a better understanding of how technical knowledge connects with real business requirements.
+
+### 2. Learning from Industry Experts
+
+- Listened to expert discussions about AI Agent development during the talkshow "The Thinking Behind Building The Bot".
+- Gained practical perspectives on system architecture and AI solution optimization.
+- Better understood the challenges engineers face when implementing AI solutions in enterprise environments.
+
+### 3. Exploring Practical Challenges
+
+- Was introduced to practical challenges related to AI Agent development.
+- Learned how real-world requirements can be transformed into technical ideas and solutions.
+- Recognized the importance of combining technical knowledge with hands-on experience and problem-solving abilities.
+
+### 4. Networking and Career Development
+
+- Had opportunities to interact with the AWS Study Group community and people with similar career interests in AI and Cloud.
+- Learned more about recruitment expectations and the skills valued by technology companies.
+- The networking activities with CMC Global's HR team provided additional insights into career opportunities and professional development in the IT industry.
+
+## Lessons Learned
+
+Through this event, I realized that developing a valuable AI product requires more than simply using a powerful AI model. Developers need systematic thinking, a clear understanding of the problem, the ability to integrate different tools, and the knowledge to select appropriate infrastructure.
+
+The most important lessons I gained include:
+
+- AI Agents are a promising direction that extends AI capabilities from information processing to executing specific tasks.
+- AWS Cloud plays an important role in building and deploying scalable AI systems.
+- Hands-on practice through real-world projects and challenges is an effective way to strengthen technical knowledge.
+- Technical expertise, problem-solving abilities, and teamwork skills should be developed together.
+- Actively participating in technology communities helps developers access new knowledge and expand career opportunities.
+
+## Event Photos
+
+Some photos captured during the event:
+<img width="2561" height="1921" alt="image" src="https://github.com/user-attachments/assets/330f828f-cc25-43ac-8132-7f4e560fd45c" />
+
+
+
+## Conclusion
+
+The Kickoff FCAJ Buildrathon 2026 Season 01 event not only helped me update my knowledge of AWS Cloud, Generative AI, and AI Agents but also provided an opportunity to understand how technology products can be developed with a practical mindset.
+
+Through expert discussions and networking activities, I gained a clearer understanding of the gap between theoretical knowledge and the ability to implement real-world solutions.
+
+This experience has motivated me to continue improving my AWS knowledge, explore AI Agent technologies in greater depth, and develop more practical projects to better prepare for my future career as an **AI Engineer**.

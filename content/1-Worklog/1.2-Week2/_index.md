@@ -1,57 +1,37 @@
 ---
-title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 2"
+date: 2026-09-21
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
 
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Gain an overview of the core concepts and knowledge to be acquired throughout the course.
+- Understand the fundamentals and practice with CloudWatch Rules, AWS Lambda (Serverless), VPC, and EC2 Instances.
+- Configure Security Groups and set up automated monitoring with Slack notifications.
+- Participate in the FCAJ Builderathon 2026 Kickoff Event.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks Implemented This Week:
+| Day | Work Details | Start Date | Completion Date | Reference Link |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Research and read through overall study materials.<br>- Summarize key knowledge points and define learning outcomes to be achieved after completing the materials. | 21/09/2026   | 21/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | - Learn about CloudWatch Rules (acts as a timer or event sensor to trigger events).<br>- Learn about Triggers (executes commands via Serverless architecture without incurring idle costs).<br>- Study VPC (Virtual Private Cloud) & EC2 Instances.<br>- **Hands-on:** Successfully launch a virtual machine within the VPC workflow. | 22/09/2026   | 22/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | - **Hands-on:**<br>&emsp;+ Successfully create a Security Group within the VPC.<br>&emsp;+ Launch an EC2 instance and assign resource tags to it. | 23/09/2026   | 23/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | - Create a Webhook integration and set up Slack workspace communication.<br>- Create IAM Roles and set up AWS Lambda functions.<br>- Test Lambda execution results and clean up unused resources.<br>- **Outcome:** Successfully automated EC2 instance shutdown and configured status notifications to Slack via AWS Lambda. | 24/09/2026   | 24/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Sat | - Attend the FCAJ Builderathon 2026 Kickoff Event. | 26/09/2026   | 26/09/2026      | |
 
 
-### Week 2 Achievements:
+### Week 2 Key Accomplishments:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Acquired a clear overview of the required knowledge roadmap.
+- Understood the operational model of Serverless services (CloudWatch Events/Rules, AWS Lambda) and cost optimization techniques.
+- Successfully created and configured basic infrastructure resources: **VPC, Security Groups, and EC2 Instances** (with proper resource tagging).
+- Built a working automation workflow: **Automated EC2 instance shutdown with notifications sent to a Slack channel via Webhooks**.
+- Cleaned up test resources after labs to prevent unintended AWS charges.
+- Participated in the FCAJ Builderathon 2026 Kickoff event to align with event goals and requirements.

@@ -1,57 +1,38 @@
 ---
-title: "Week 3 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 3"
+date: 2026-09-28
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
 
 
 ### Week 3 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Understand the fundamentals and basic usage of Grafana monitoring tool.
+- Attend the AWS Cloud and AI Day event.
+- Set up network infrastructure, EC2 Linux server, and configure granular IAM permissions.
+- Install, configure, and successfully launch Grafana on an EC2 Linux instance.
+- Integrate AWS CloudWatch with Grafana for system monitoring and clean up resources post-lab.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks Implemented This Week:
+| Day | Work Details | Start Date | Completion Date | Reference Link |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Research core concepts and learn basic usage of Grafana. | 28/09/2026   | 28/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | - Attend the AWS Cloud and AI Day event. | 29/09/2026   | 29/09/2026      | |
+| Wed | - **Hands-on:**<br>&emsp;+ Create VPC and Subnet for EC2 Linux server.<br>&emsp;+ Create Security Groups and launch an EC2 Linux instance.<br>&emsp;+ Create IAM Users and IAM Roles.<br>&emsp;+ Attach the IAM Role to the EC2 instance. | 30/09/2026   | 30/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | - **Grafana Installation:**<br>&emsp;+ Connect to the EC2 Linux server via PuTTY.<br>&emsp;+ Add YUM repository for Grafana, configure and verify `grafana.repo` content.<br>&emsp;+ Install and start the Grafana service.<br>&emsp;+ Access Grafana web UI using Public IPv4 on port 3000.<br>- **Outcome:** Successfully logged into the Grafana dashboard. | 01/10/2026   | 01/10/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Fri | - **Monitoring with Grafana:**<br>&emsp;+ Hands-on integration between Grafana and AWS CloudWatch (as a Data Source).<br>&emsp;+ Build monitoring dashboards.<br>&emsp;+ Clean up created AWS resources post-lab. | 02/10/2026   | 02/10/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 
-### Week 3 Achievements:
+### Week 3 Key Accomplishments:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Updated technological insights from the **AWS Cloud and AI Day** event.
+- Mastered the setup of VPC, Subnet, Security Groups, and assigning **IAM Roles to EC2 instances** for secure AWS service interactions.
+- Proficient in SSH connections via **PuTTY**, managing YUM repositories, and installing applications on Linux.
+- Successfully accessed the Grafana web interface via port **3000** using Public IPv4.
+- Integrated **AWS CloudWatch as a Data Source in Grafana** to visualize infrastructure metrics.
+- Cleaned up all AWS resources post-lab to prevent unwanted cloud charges.

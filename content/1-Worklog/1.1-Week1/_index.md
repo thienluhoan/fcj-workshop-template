@@ -1,57 +1,35 @@
 ---
 title: "Week 1 Worklog"
-date: 2024-01-01
+date: 2026-09-14
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
 
 
 ### Week 1 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Understand workplace rules, regulations, and company culture at the internship office/organization.
+- Get acquainted with **FCAJ (First Cloud AI Journey)** members and explore the overall learning roadmap on **Cloud Journey**.
+- Successfully create an **AWS (Amazon Web Services)** account and explore available AWS Credit programs.
+- Complete the initial onboarding tasks on AWS to earn **$100 in free AWS Credits** for upcoming hands-on labs.
+- Learn cost management fundamentals and configure automated spending alerts using **AWS Budgets**.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks to Implement This Week:
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - **Understand office rules and internship regulations:**<br>&emsp;+ Attend the onboarding session to learn workplace culture, working hours, and professional conduct.<br>&emsp;+ Review information security policies, data privacy guidelines, and weekly worklog reporting procedures.<br>&emsp;+ Set up internal communication tools and personal workspace environments. | 14/09/2026   | 14/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | - **Get to know FCAJ members and explore Cloud Journey documentation:**<br>&emsp;+ Connect and network with mentors and fellow interns in the **FCAJ** program.<br>&emsp;+ Review the training roadmap structure, lab execution guidelines, and worklog documentation standards.<br>&emsp;+ Explore the technical resource hub on the **AWS Study Group (Cloud Journey)** portal. | 15/09/2026   | 15/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | - **Create an AWS account and explore credit-earning tasks:**<br>&emsp;+ Register a new **AWS Free Tier** account and complete identity and payment method verification.<br>&emsp;+ Implement foundational account security by enabling Multi-Factor Authentication (MFA) on the Root account and creating an IAM Admin user.<br>&emsp;+ Review the list of introductory tasks required to unlock AWS promotional credits. | 16/09/2026   | 16/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | - **Complete the first 5 tasks to receive $100 in free credits:**<br>&emsp;+ Execute the first 5 introductory hands-on tasks on the AWS Management Console.<br>&emsp;+ Verify task completion statuses and claim the **$100 AWS Credit** reward.<br>&emsp;+ Check **Billing and Cost Management $\rightarrow$ Credits** to confirm the promotional balance is active. | 17/09/2026   | 17/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Fri | - **Learn about AWS Budgets and cost control:**<br>&emsp;+ Explore the **AWS Billing and Cost Management** dashboard and understand AWS pricing models.<br>&emsp;+ Create monthly spending limits using **AWS Budgets** (Zero-spend budget / Cost budget).<br>&emsp;+ Configure automated email notifications when actual or forecasted costs reach 50%, 80%, and 100% of the budget threshold. | 18/09/2026   | 18/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 
 ### Week 1 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Fully understood workplace regulations and smoothly integrated into the internship environment and **FCAJ** community.
+- Successfully created a secured **AWS** account (with MFA and IAM best practices) and earned **$100 in AWS Credits** to support hands-on labs.
+- Configured proactive cost monitoring and alert thresholds via **AWS Budgets** to prevent unexpected charges throughout the internship.

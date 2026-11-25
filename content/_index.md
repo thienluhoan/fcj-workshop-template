@@ -1,6 +1,6 @@
 ---
 title: "Internship Report"
-date: 2024-01-01
+date: 2026-09-14
 weight: 1
 chapter: false
 ---
@@ -13,15 +13,15 @@ chapter: false
 {{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Nguyen Hoang Khang
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0918435153
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** lessangthrug1905@gmail.com
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** FPT University
 
-&emsp; **Major:** Information Technology
+&emsp; **Major:** Artificial Intelligence
 
 &emsp; **Class:** AWS082025
 
@@ -29,9 +29,12 @@ chapter: false
 
 &emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 14/09/2026 to 14/12/2026
 
-![Your profile picture](/images/avatar.png)
+![Your profile picture]
+
+<img width="1920" height="2560" alt="image" src="https://github.com/user-attachments/assets/abcdfe3f-8abb-4992-885d-855c9e3a4f1d" />
+
 
 ### Report Content
 
