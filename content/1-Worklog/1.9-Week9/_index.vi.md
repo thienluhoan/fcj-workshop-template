@@ -30,4 +30,9 @@ pre: " <b> 1.9. </b> "
 
 ### Kết quả đạt được trong tuần 9:
 
-- Thiết kế thành thạo mô hình dữ liệu và kiến trúc mở rộng nâng cao trên **Amazon
+- Thiết kế thành thạo mô hình dữ liệu và kiến trúc mở rộng nâng cao trên **Amazon DynamoDB**, tối ưu hóa tốc độ truy vấn và khả năng xử lý tự động theo sự kiện.
+- Hiểu rõ cách thức hoạt động và áp dụng hiệu quả các chính sách giảm giá dài hạn như **Savings Plans**, **Reserved Instances** và **Reserved DB Instances** để tối ưu hóa ngân sách hạ tầng.
+- Nắm vững quy trình giám sát hiệu năng và thực hiện **Right-sizing** cho **Amazon EC2** bằng **AWS Compute Optimizer** và **CloudWatch**, đảm bảo cân bằng giữa hiệu suất và chi phí.
+- Thiết lập hoàn chỉnh hệ thống theo dõi, cảnh báo ngân sách và trực quan hóa dữ liệu chi phí AWS một cách trực quan, minh bạch.
+- Ứng dụng thành công bộ đôi **AWS Glue** và **Amazon Athena** để truy vấn và phân tích dữ liệu chi phí quy mô lớn (CUR) phục vụ công tác quản trị tài chính đám mây (FinOps).
+- Đảm bảo thu dọn sạch sẽ toàn bộ tài nguyên thử nghiệm sau mỗi bài lab để không phát sinh chi phí ngoài ý muốn.
