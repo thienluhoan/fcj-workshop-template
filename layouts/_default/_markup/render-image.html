@@ -1,0 +1,28 @@
+{{- /*
+  Image render hook.
+
+  The site is published under a sub-path (baseURL = .../fcj-workshop-FA26),
+  so image paths written as "/images/x.png", "../static/images/x.png" or
+  "../../images/x.png" all break on GitHub Pages. This hook normalises any
+  local path to "images/x.png" and passes it through relURL, which adds the
+  site's base path.
+
+  It also supports the Obsidian-style width syntax in the alt text:
+    ![Avatar|220](../static/images/avatar.png)  ->  <img alt="Avatar" width="220">
+*/ -}}
+{{- $src := .Destination -}}
+{{- $alt := .PlainText -}}
+{{- $width := "" -}}
+{{- with findRESubmatch `^(.*?)\s*\|\s*(\d+)$` $alt 1 -}}
+  {{- $alt = index (index . 0) 1 -}}
+  {{- $width = index (index . 0) 2 -}}
+{{- end -}}
+{{- $u := urls.Parse $src -}}
+{{- if and (not $u.IsAbs) (not (hasPrefix $src "//")) (not (hasPrefix $src "data:")) -}}
+  {{- $p := replaceRE `^(\.{1,2}/)+` "" $src -}}
+  {{- $p = strings.TrimLeft "/" $p -}}
+  {{- $p = strings.TrimPrefix "static/" $p -}}
+  {{- $src = $p | relURL -}}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ $alt }}"{{ with $width }} width="{{ . }}"{{ end }}{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy">
+{{- /* chomp trailing newline */ -}}
