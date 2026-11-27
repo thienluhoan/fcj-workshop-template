@@ -1,141 +1,126 @@
 ---
 title: "Bản đề xuất"
-date: 2026-09-14
+date: 2026-10-18
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
+# SecureTable – Restaurant Management System on AWS
 
-# SECURETABLE – HỆ THỐNG QUẢN LÝ NHÀ HÀNG AN TOÀN TRÊN AWS
-### Giải pháp AWS Serverless cho gọi món, quản lý kho và thu chi của quán ăn nhỏ
+## Hệ thống quản lý nguyên liệu và gọi món bằng mã QR trên nền tảng AWS Serverless
 
-### 1. Tóm tắt điều hành
+---
 
-SecureTable là ứng dụng web chạy trên tablet giúp quán ăn gia đình và nhà hàng nhỏ (5–20 nhân viên) gọi món, điều phối bếp, trừ kho theo công thức và ghi nhận thu chi. Hệ thống được xây hoàn toàn bằng dịch vụ serverless của AWS tại region Singapore, quản lý 100% bằng Terraform, có pipeline DevSecOps kiểm tra bảo mật trên mọi pull request.
+### 1. Tổng quan dự án
 
-Điểm nhấn của dự án là **bảo mật nhiều lớp với chi phí thấp**: MFA cho mọi tài khoản, chỉ chủ quán được tạo tài khoản, phân quyền hai tầng cho 5 vai trò, WAF chống SQLi/XSS, audit log cho mọi thao tác nhạy cảm. Chi phí vận hành ước tính **khoảng 1,5–2,1 USD/tháng**, dưới trần ngân sách 10 USD/tháng của nhóm.
+**SecureTable** là hệ thống quản lý nhà hàng quy mô nhỏ, tập trung vào việc gọi món, quản lý nguyên liệu, hóa đơn và theo dõi doanh thu. Khách hàng quét mã QR cố định tại bàn để xem thực đơn và đặt món; nhân viên sử dụng các giao diện riêng để xử lý nghiệp vụ.
 
-### 2. Tuyên bố vấn đề
+Hệ thống hướng đến mô hình **Serverless** trên AWS nhằm giảm công việc vận hành máy chủ và thuận tiện cho việc mở rộng. Dự án được triển khai thử nghiệm tại **AWS Region Asia Pacific (Singapore) – `ap-southeast-1`**.
 
-**Vấn đề hiện tại**
+**Nhóm người dùng:**
 
-Khảo sát các quán ăn gia đình và một đầu bếp đang làm tại quán cho thấy năm vấn đề lặp lại:
-- Gọi món bằng lời nói và sổ tay, giờ cao điểm dễ nhầm bàn, sót món.
-- Không biết tồn kho thực tế, đến khi bếp báo hết nguyên liệu thì khách đã gọi món.
-- Tính tiền bằng máy tính bỏ túi, không có dấu vết ai mở, sửa, huỷ hoá đơn, dễ thất thoát doanh thu.
-- Thu chi không rõ ràng, cuối tháng không biết lãi lỗ.
-- Dữ liệu kinh doanh nằm trong file dùng chung, không phân quyền, không có bảo vệ.
+- **Guest:** Quét QR, xem thực đơn, gọi món không cần tài khoản.
+- **Reception:** Quản lý bàn, mở và đóng hóa đơn.
+- **Kitchen:** Xác nhận hoàn tất hoặc từ chối món.
+- **Inventory:** Nhập kho, cập nhật và điều chỉnh nguyên liệu.
+- **Admin:** Xem báo cáo tài chính và lịch sử thao tác.
 
-**Giải pháp**
+### 2. Mục tiêu dự án
 
-Nhân viên dùng tablet để gọi món. Đơn hàng đi thẳng tới màn hình bếp. Khi bếp bấm "Đã phục vụ", hệ thống tự trừ kho theo công thức món. Thu ngân đóng hoá đơn và doanh thu được ghi vào sổ thu chi theo ngày. Mỗi người chỉ thấy và làm được đúng phần việc của vai trò mình (ADMIN, INVENTORY, RECEPTION, WAITER, KITCHEN). Mọi thao tác nhạy cảm đều được ghi audit log.
+- Xây dựng website quản lý nhà hàng hoạt động trên AWS.
+- Đồng bộ dữ liệu giữa đặt món, bếp, kho và hóa đơn.
+- Theo dõi nguyên liệu nhập, đặt giữ, tiêu thụ và thất thoát.
+- Phân quyền nhân viên; ghi nhận các thao tác quan trọng để truy vết.
+- Tự động hóa báo cáo, sao lưu và giám sát hệ thống.
+- Áp dụng các nguyên tắc **AWS Well-Architected** về bảo mật, độ tin cậy, hiệu năng, vận hành và chi phí.
 
-**Lợi ích và hoàn vốn đầu tư (ROI)**
-- Giảm nhầm món và sót món nhờ đơn điện tử đi thẳng tới bếp.
-- Biết tồn kho theo thời gian thực, cảnh báo trước khi hết nguyên liệu.
-- Hạn chế gian lận nhờ audit log và phân quyền.
-- Chi phí đám mây khoảng 2 USD/tháng, không cần mua máy chủ. Quán chỉ cần tablet sẵn có.
+### 3. Vấn đề cần giải quyết
 
-### 3. Kiến trúc giải pháp
+Ở nhiều quán ăn nhỏ, việc ghi chép nguyên liệu, tiếp nhận đơn hàng và tổng hợp doanh thu còn phụ thuộc vào sổ sách hoặc công cụ riêng lẻ. Điều này dễ gây sai lệch tồn kho, chậm truyền đơn đến bếp và khó kiểm tra các thay đổi dữ liệu.
 
-![Sơ đồ kiến trúc SecureTable](../../static/images/2-Proposal/securetable-architecture.png)
+**Giải pháp:** SecureTable sử dụng một hệ thống dữ liệu tập trung. Khi khách đặt món, thông tin được gửi đến bếp và liên kết với lượng nguyên liệu đặt giữ. Khi món được xử lý và hóa đơn được đóng, dữ liệu tồn kho và tài chính được cập nhật theo quy tắc nghiệp vụ. Người quản lý có thể tra cứu báo cáo và Audit Logs thay vì đối chiếu thủ công.
 
-Kiến trúc gồm ba lớp:
-- **Lớp biên**: CloudFront phục vụ giao diện, API Gateway nhận request, WAF lọc request độc hại.
-- **Lớp xử lý**: Cognito xác thực người dùng, 6 hàm Lambda xử lý nghiệp vụ.
-- **Lớp dữ liệu**: DynamoDB và S3.
+### 4. Kiến trúc giải pháp
 
-CloudWatch, CloudTrail, SNS và AWS Budgets lo phần giám sát và cảnh báo.
+![Architecture](../../images/2-Proposal/SecureTable_Architecture.svg)
 
-**Dịch vụ AWS sử dụng**
+| Dịch vụ AWS | Vai trò |
+|---|---|
+| **Amazon S3 + Amazon CloudFront** | Lưu trữ và phân phối giao diện web qua HTTPS. |
+| **Amazon API Gateway** | Tiếp nhận và định tuyến yêu cầu API. |
+| **AWS Lambda** | Xử lý GuestServices, Ordering, Reception, Kitchen, Inventory, AdminDashboard, Report và Backup. |
+| **Amazon DynamoDB** | Lưu trữ bàn, bill, đơn hàng, nguyên liệu, tài chính và audit. |
+| **Amazon Cognito + AWS IAM** | Xác thực nhân viên và giới hạn quyền truy cập tài nguyên. |
+| **Amazon EventBridge Scheduler + Amazon SNS** | Lập lịch báo cáo, backup và gửi thông báo email. |
+| **Amazon CloudWatch + AWS CloudTrail** | Giám sát, cảnh báo và theo dõi hoạt động trên AWS. |
+| **AWS WAF** | Lọc một số loại request web bất thường (nếu được bật trong bản triển khai). |
 
-| Dịch vụ | Vai trò |
-| --- | --- |
-| Amazon CloudFront | Phân phối giao diện React và ảnh món qua HTTPS, thêm security headers |
-| Amazon S3 | 3 bucket private: `frontend`, `assets`, `backup` (Glacier sau 90 ngày) |
-| Amazon Cognito | User Pool, MFA TOTP, 5 nhóm vai trò, chỉ admin tạo tài khoản |
-| Amazon API Gateway | REST API, Cognito authorizer, throttling 50 rps / burst 100 |
-| AWS WAF | Managed Rules (Common, SQLi, Known Bad Inputs) + rate limit theo IP, bật khi pentest/demo |
-| AWS Lambda | 6 hàm Python: Menu, Orders, Inventory, Staff, Finance, Audit |
-| Amazon DynamoDB | 5 bảng on-demand + GSI `status_created_at_idx`, PITR |
-| AWS IAM | Role riêng cho từng Lambda theo nguyên tắc quyền tối thiểu |
-| Amazon CloudWatch, AWS CloudTrail | Log, metric, dashboard, alarm; kiểm toán API |
-| Amazon SNS, AWS Budgets | Gửi cảnh báo email; ngân sách 10 USD/tháng |
+**Các luồng chính:**
 
-**Thiết kế thành phần**
-- **Giao diện**: React build tĩnh lưu ở S3, chỉ đọc được qua CloudFront (Origin Access Control).
-- **Định danh**: Cognito cấp JWT có claim `cognito:groups`. Cognito authorizer chỉ kiểm tra token hợp lệ. Decorator `@require_roles` trong Lambda kiểm tra vai trò (sai vai trò trả 403).
-- **Dữ liệu**: các bảng `orders`, `menu_items`, `inventory`, `daily_finance`, `audit_logs` dùng chung khóa phân vùng `restaurant_id`. Màn hình bếp truy vấn GSI theo trạng thái và thời gian. Thao tác "Đã phục vụ" dùng giao dịch `TransactWriteItems` để vừa cập nhật đơn vừa trừ kho.
-- **Giám sát**: alarm lỗi 5xx và request tăng đột biến gửi qua SNS. AWS Budgets cảnh báo ở mốc 50%, 80% và 100% ngân sách.
+1. **Guest:** Quét QR → CloudFront → API Gateway → GuestServices/Ordering → DynamoDB. Guest Session chỉ hợp lệ khi bill tương ứng đang mở.
+2. **Staff:** Đăng nhập qua Cognito → gọi API Gateway → Lambda theo nghiệp vụ → DynamoDB.
+3. **Kitchen/Inventory:** Xử lý món hoặc nguyên liệu; cập nhật dữ liệu bằng các điều kiện và transaction khi cần duy trì tính nhất quán.
+4. **Automation:** EventBridge Scheduler → Report/Backup Lambda → SNS hoặc xuất dữ liệu DynamoDB sang S3.
 
-### 4. Triển khai kỹ thuật
+**Định hướng Well-Architected:** Dùng IAM theo quyền tối thiểu, HTTPS và Cognito cho bảo mật; DynamoDB Transactions và backup cho độ tin cậy; CloudWatch cho vận hành; Lambda và DynamoDB cho khả năng mở rộng theo nhu cầu; theo dõi sử dụng tài nguyên để tối ưu chi phí.
 
-**Các giai đoạn triển khai**
-1. **Khảo sát và chọn đề tài** (tuần 3–4): khảo sát doanh nghiệp và gia đình, đối chiếu với yêu cầu tốt nghiệp.
-2. **Thiết kế và bản hạ tầng đầu tiên** (tuần 5–6): học bảo mật AWS và Terraform, dựng thử kiến trúc 3-tier.
-3. **Chuyển sang serverless** (tuần 7–8): dựng 7 module Terraform, rà soát bảo mật, đưa pipeline DevSecOps vào CI.
-4. **Đấu nối, kiểm thử, demo** (tuần 9–12): viết Lambda và các route API, đưa frontend lên CloudFront, giám sát, pentest WAF, diễn tập khôi phục.
+### 5. Lộ trình triển khai
 
-**Yêu cầu kỹ thuật**
-- Terraform ≥ 1.9, AWS Provider 5.x; AWS CLI v2; Python 3.12 cho Lambda; Node.js 20 cho frontend (React + Vite).
-- GitHub Actions: gitleaks, Checkov, Trivy, Bandit, Flake8, pytest, `terraform fmt/validate/test`.
-- Script PowerShell `deploy_and_test.ps1` (triển khai và kiểm tra) và `nuke_and_teardown.ps1` (dọn sạch về 0 USD).
+| Giai đoạn | Nội dung |
+|---|---|
+| **Tuần 1–2** | Phân tích yêu cầu, thiết kế kiến trúc và dữ liệu DynamoDB. |
+| **Tuần 3–4** | Triển khai frontend S3/CloudFront, Cognito, API Gateway và các Lambda chính. |
+| **Tuần 5–6** | Hoàn thiện Ordering, Kitchen, Inventory, Reception, Finance/Audit và báo cáo. |
+| **Tuần 7–8** | Bổ sung monitoring, bảo mật, backup; kiểm thử và chuẩn bị demo, tài liệu Workshop. |
 
-### 5. Lộ trình & mốc triển khai
+### 6. Ngân sách dự kiến
 
-| Mốc | Thời gian | Kết quả |
-| --- | --- | --- |
-| Chọn đề tài | 29/09 – 07/10/2026 | Khảo sát, phân tích, ma trận yêu cầu → minh chứng |
-| Hạ tầng v1 (3-tier) | 19 – 25/10/2026 | Module Terraform VPC, EC2, RDS, Secrets |
-| Chuyển serverless | 26/10 – 04/11/2026 | 7 module serverless, sơ đồ kiến trúc v1.0.0 |
-| Rà soát bảo mật + CI | 05 – 06/11/2026 | MFA, chỉ admin tạo user, 10 test IaC, CI chặn |
-| Đấu nối + demo | 24 – 27/11/2026 | Lambda, route API, CloudFront, giám sát, pentest |
-| Nộp bài | 30/11/2026 | Báo cáo song ngữ, summary .md, architecture .xml |
+Ngân sách được lập cho **01 tháng vận hành thử nghiệm và demo** tại AWS Region Singapore (`ap-southeast-1`), với mô hình Serverless và lưu lượng thấp. Các số tiền dưới đây là **dự toán kế hoạch**, chưa phải hóa đơn thực tế hoặc kết quả được xác nhận từ AWS Pricing Calculator.
 
-### 6. Ước tính ngân sách
+#### 6.1. Giả định lập dự toán
 
-Giả định một nhà hàng chạy thử: 15 tài khoản, khoảng 200 đơn mỗi ngày, khoảng 200.000 request API mỗi tháng. Đơn giá lấy từ AWS Price List, region Singapore, tháng 11/2026.
+| Thông số | Giả định |
+|---|---|
+| Quy mô nhà hàng | 10 bàn, khoảng 20–30 hóa đơn/ngày |
+| Lưu lượng API | Khoảng 40.000 REST API requests/tháng |
+| Xử lý backend | Khoảng 60.000 Lambda invocations/tháng, chủ yếu 256 MB |
+| Dữ liệu | Khoảng 1 GB DynamoDB |
+| Báo cáo và sao lưu | Báo cáo định kỳ; backup khoảng 13 bảng/tuần |
+| CloudFront & WAF | Giả định dùng **CloudFront Free Plan**, WAF nằm trong quyền lợi gói |
 
-| Dịch vụ | USD/tháng |
-| --- | --- |
-| API Gateway REST (0,2 triệu request × 4,25 USD) | 0,85 |
-| Lambda (trong mức miễn phí) | 0,00 |
-| DynamoDB on-demand + PITR | 0,25 |
-| S3 (1,2 GB) | 0,04 |
-| CloudFront (trong mức miễn phí 1 TB) | 0,00 |
-| Cognito (15 MAU) | 0,00 |
-| CloudWatch (0,5 GB log, alarm, dashboard) | 0,36 |
-| CloudTrail, SNS, Budgets | 0,00 |
-| **Tổng khi WAF tắt** | **≈ 1,50** |
-| WAF bật 2 ngày (pentest + demo) | ≈ 0,60 |
-| **Tổng tháng có pentest/demo** | **≈ 2,10** |
+#### 6.2. Bảng dự toán chi phí hàng tháng
 
-Nếu bật WAF suốt tháng, riêng WAF tốn khoảng 9,10 USD (5 USD Web ACL và 4 rule). Vì vậy WAF được điều khiển bằng cờ `enable_waf`.
+| STT | Dịch vụ AWS | Cơ sở ước tính | Chi phí (USD/tháng) |
+|:---:|---|---|---:|
+| 1 | Amazon CloudFront & S3 | Frontend tĩnh; Free Plan, dự phòng lưu trữ/request S3 ngoài gói | **$0.50** |
+| 2 | Amazon API Gateway (REST) | 40.000 request/tháng | **$0.20** |
+| 3 | AWS Lambda | 60.000 invocation/tháng, memory chủ yếu 256 MB | **$0.30** |
+| 4 | Amazon DynamoDB | Khoảng 1 GB dữ liệu và read/write lưu lượng thấp | **$1.00** |
+| 5 | Amazon Cognito | Số lượng tài khoản nhân viên ít, giả định đủ điều kiện miễn phí | **$0.00** |
+| 6 | Amazon CloudWatch | Logs dung lượng thấp và một số standard alarms | **$1.00** |
+| 7 | EventBridge Scheduler & SNS | Lịch báo cáo/backup và email thông báo | **$0.10** |
+| 8 | AWS WAF | Nằm trong CloudFront Free Plan theo giả định | **$0.00** |
+| 9 | DynamoDB PITR, Export & S3 Backup | Dự phòng PITR, xuất dữ liệu hàng tuần và lưu trữ bản sao | **$2.50** |
+| 10 | AWS CloudTrail | Chỉ sử dụng Event History mặc định | **$0.00** |
+| | **Tổng chi phí dịch vụ** | | **$5.60** |
+| | **Dự phòng phát sinh** | | **$2.00** |
+| | **Tổng ngân sách dự kiến** | | **$7.60/tháng** |
 
-Bảng dự toán AWS Pricing Calculator: *(nhóm bổ sung link)*.
+**Tổng ngân sách dự kiến trong 12 tháng: $91.20**, nếu duy trì cùng cấu hình và mức sử dụng. Số tiền thực tế có thể thay đổi theo mức sử dụng, dung lượng từng bảng, AWS Free Tier/credits và tính năng bật thêm. Nếu WAF được dùng theo cơ chế tính phí độc lập, cần cộng phí WAF riêng.
+Tham khảo: [AWS Pricing Calculator](https://calculator.aws/).
 
-### 7. Đánh giá rủi ro
+### 7. Rủi ro và biện pháp giảm thiểu
 
-**Ma trận rủi ro**
-
-| Rủi ro | Ảnh hưởng | Xác suất |
-| --- | --- | --- |
-| Vượt ngân sách (bật WAF, quên dọn tài nguyên) | Trung bình | Trung bình |
-| Lộ access key / secret | Cao | Thấp |
-| Nhân viên sai vai trò truy cập dữ liệu chủ quán | Cao | Trung bình |
-| Tấn công SQLi/XSS, brute-force đăng nhập | Cao | Thấp |
-| Mất dữ liệu do xoá nhầm | Cao | Thấp |
-
-**Chiến lược giảm thiểu**
-- **Chi phí**: AWS Budgets ở mốc 50/80/100%, WAF bật theo cờ, script nuke chạy sau mỗi buổi thực hành.
-- **Secret**: gitleaks quét toàn bộ lịch sử Git trong CI, không lưu credential trong code, hướng tới deploy bằng OIDC.
-- **Phân quyền**: decorator `@require_roles` có unit test, IAM role riêng cho từng Lambda.
-- **Tấn công web**: WAF Managed Rules, throttling và rate limit theo IP, Cognito MFA.
-- **Dữ liệu**: DynamoDB PITR, S3 versioning, hạ tầng dựng lại được bằng Terraform.
-
-**Kế hoạch dự phòng**: khi có sự cố, chạy `nuke_and_teardown.ps1` rồi `deploy_and_test.ps1` để dựng lại toàn bộ hạ tầng. Dữ liệu được khôi phục từ PITR hoặc từ bản export trong bucket `backup`.
+| Rủi ro | Hướng xử lý |
+|---|---|
+| QR tĩnh bị sao chép và dùng để đặt món từ xa | Giới hạn session theo bill đang mở; Reception kiểm tra đơn tranh chấp. Xác thực bổ sung là hướng phát triển tiếp theo. |
+| Đặt món đồng thời gây sai lệch tồn kho | Dùng DynamoDB Transactions, điều kiện cập nhật và idempotency cho thao tác quan trọng. |
+| Lambda/API lỗi hoặc timeout | Theo dõi CloudWatch, cảnh báo và cho phép thử lại các tác vụ được thiết kế an toàn. |
+| Rò rỉ quyền truy cập | Cognito cho nhân viên, IAM theo quyền tối thiểu và kiểm tra quyền tại backend. |
+| Mất dữ liệu hoặc vượt ngân sách | Sao lưu định kỳ, thử khôi phục; dùng AWS Budgets và rà soát tài nguyên. |
 
 ### 8. Kết quả kỳ vọng
 
-- **Cải tiến kỹ thuật**: một kiến trúc serverless hoàn chỉnh, 100% IaC, CI/CD có kiểm thử bảo mật, giám sát và cảnh báo tự động, chi phí dưới 10 USD/tháng.
-- **Giá trị dài hạn**: nền tảng mở rộng được cho nhiều chi nhánh (multi-tenant theo `restaurant_id`). Đây cũng là mẫu tham khảo cho các dự án serverless có yêu cầu bảo mật cao với ngân sách nhỏ.
+SecureTable hướng tới một **MVP có thể demo trọn vẹn** quy trình: Reception mở bàn → khách quét QR và gọi món → Kitchen xử lý → Inventory cập nhật nguyên liệu → Reception đóng bill → Admin xem báo cáo và lịch sử thao tác.
+
+Về kỹ thuật, dự án cần chứng minh các AWS service phối hợp đúng theo sơ đồ, dữ liệu nghiệp vụ được cập nhật nhất quán, có kiểm soát truy cập, monitoring, báo cáo và sao lưu. Về lâu dài, hệ thống có thể mở rộng thêm thanh toán trực tuyến, nhiều chi nhánh và cơ chế xác minh QR chặt chẽ hơn.
