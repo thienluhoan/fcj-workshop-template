@@ -19,13 +19,13 @@ chapter: false
 
 &emsp; **Major:** Software Engineering
 
-&emsp; **Semester:** 6
+&emsp; **Class:** FCAJ - FPT - Season 4
 
 &emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
 
 &emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Internship Duration:** From 14 September 2026 to 18 December 2026
+&emsp; **Internship Duration:** From 14 September 2026 to 14 December 2026
 
 {{< profile-photo alt="Profile photo" >}}
 
