@@ -1,31 +1,34 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-11-23
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Deploying SecureTable – A Secure Serverless Restaurant Management System on AWS
 
-#### Overview
+### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+This workshop shows how to redeploy the whole **SecureTable** system with Terraform and automation scripts, from infrastructure to security testing and cleanup. By following it end to end you will have:
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+- A web app served through **Amazon CloudFront** (HTTPS), with data stored in **Amazon DynamoDB** and **Amazon S3**.
+- Sign-in with **Amazon Cognito** (mandatory MFA, admin-only account creation), an API on **Amazon API Gateway** with a Cognito authorizer, and business logic in **AWS Lambda**.
+- An **AWS WAF** layer toggled by a single flag, monitoring with **Amazon CloudWatch**, alerts through **Amazon SNS** and cost control with **AWS Budgets**.
+- A **DevSecOps** pipeline on GitHub Actions and a single command that tears everything down to 0 USD.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+### Contents
 
-#### Content
+1. [Introduction](5.1-workshop-overview/)
+2. [Prerequisites](5.2-prerequiste/)
+3. [Deploying the infrastructure with Terraform](5.3-deploy-infrastructure/)
+4. [Cognito accounts and API testing](5.4-cognito-api/)
+5. [Frontend on S3 + CloudFront](5.5-frontend/)
+6. [Security: WAF and the DevSecOps pipeline](5.6-security/)
+7. [Monitoring, testing and cost](5.7-monitoring/)
+8. [Cleaning up resources](5.8-cleanup/)
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+### Proof of a working product
+
+- **Demo video:** *(team to add link)*
+- **Product link (CloudFront):** *(team to add during the demo)*

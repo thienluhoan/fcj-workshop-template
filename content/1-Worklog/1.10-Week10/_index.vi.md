@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-11-16
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Nắm chắc Git khi làm nhóm (branch, rebase, PR xếp chồng, viết lại lịch sử) sau các sự cố tuần 8.
+- Viết 3 bài blog kỹ thuật chia sẻ kiến thức AWS cho cộng đồng.
+- Mô hình hóa mối đe dọa cho luồng đăng nhập – gọi API – lưu dữ liệu của SecureTable.
+- Xây lộ trình học cá nhân có hệ thống cho mảng Cloud & DevSecOps.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Đọc Pro Git chương 1–3<br>- Luyện Learn Git Branching (rebase, cherry-pick)<br>- Ôn lại PR xếp chồng và viết lại lịch sử an toàn | 16/11/2026 | 16/11/2026 | [Pro Git (sách)](https://git-scm.com/book/en/v2)<br>[Learn Git Branching](https://learngitbranching.js.org)<br>[git push (--force-with-lease)](https://git-scm.com/docs/git-push) |
+| 3 | - Phân tích 3 bài blog tham khảo (Terraform, WAF + API Gateway, SQS)<br>- Lập khung bài viết chung và chọn 3 chủ đề<br>- Viết bài 1: Upload file thẳng lên S3 bằng Presigned URL<br>- Vẽ sơ đồ minh họa cho 3 bài bằng script | 17/11/2026 | 17/11/2026 | [S3 – Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html)<br>[API Gateway – Quotas](https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html)<br>[Lambda – Quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)<br>Bản nháp blog |
+| 4 | - Viết bài 2: NAT Gateway và VPC Endpoint<br>- Viết bài 3: GitHub Actions deploy AWS không cần access key<br>- Viết prompt mẫu để tạo bài blog với công cụ AI khác | 18/11/2026 | 18/11/2026 | [VPC – Gateway endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html)<br>[Amazon VPC – Pricing](https://aws.amazon.com/vpc/pricing/)<br>[GitHub – Configuring OIDC in AWS](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)<br>Bản nháp blog<br>[AWS Study Group – nhóm Facebook](https://www.facebook.com/groups/awsstudygroupfcj) |
+| 5 | - Đọc OWASP Top 10:2025 và Threat Modeling Manifesto<br>- Thử Threat Composer (AWS Labs)<br>- Nháp threat model luồng Cognito → API → DynamoDB | 19/11/2026 | 19/11/2026 | [OWASP Top 10:2025](https://owasp.org/Top10/2025/)<br>[Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org)<br>[Threat Composer (AWS Labs)](https://github.com/awslabs/threat-composer)<br>[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org) |
+| 6 | - Tổng hợp 100 nguồn học chọn lọc, chia 8 chặng A–H<br>- Gắn mỗi nguồn với phần việc trong SecureTable<br>- Xác định thứ tự chứng chỉ gợi ý | 20/11/2026 | 20/11/2026 | [Lộ trình Cloud & DevSecOps (artifact cá nhân)](https://claude.ai/artifact/CJmXgmuQfzQasmVM5xU4wr)<br>[roadmap.sh – DevOps](https://roadmap.sh/devops)<br>[roadmap.sh – DevSecOps](https://roadmap.sh/devsecops)<br>[AWS Skill Builder](https://skillbuilder.aws) |
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Thành thạo các thao tác Git dùng trong dự án: rebase, đổi base của PR xếp chồng, `push --force-with-lease`.
+- Hoàn thành 3 bài blog kèm sơ đồ: (1) Upload file thẳng lên S3 bằng Presigned URL, (2) NAT Gateway và VPC Endpoint, (3) GitHub Actions deploy AWS không cần access key (OIDC).
+- Có khung viết blog rút ra từ phân tích 3 bài tham khảo và prompt mẫu để tái sử dụng.
+- Bản nháp threat model cho luồng Cognito → API Gateway → Lambda → DynamoDB, ánh xạ với OWASP Top 10:2025.
+- Lộ trình *Cloud & DevSecOps* gồm 100 nguồn chọn lọc, 8 chặng A–H, có theo dõi tiến độ; thứ tự chứng chỉ gợi ý.

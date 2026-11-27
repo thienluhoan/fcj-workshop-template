@@ -1,33 +1,34 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-11-23
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Triển khai SecureTable – Hệ thống quản lý nhà hàng Serverless an toàn trên AWS
 
+### Tổng quan
 
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+Workshop này hướng dẫn triển khai lại toàn bộ hệ thống **SecureTable** bằng Terraform và script tự động, từ hạ tầng tới kiểm thử bảo mật và dọn dẹp tài nguyên. Người đọc làm theo từ đầu đến cuối sẽ có:
 
-#### Tổng quan
+- Một ứng dụng web chạy qua **Amazon CloudFront** (HTTPS), dữ liệu lưu trong **Amazon DynamoDB** và **Amazon S3**.
+- Đăng nhập bằng **Amazon Cognito** (MFA bắt buộc, chỉ admin tạo tài khoản), API qua **Amazon API Gateway** với Cognito authorizer, xử lý bằng **AWS Lambda**.
+- Lớp bảo vệ **AWS WAF** bật/tắt bằng một cờ, giám sát bằng **Amazon CloudWatch**, cảnh báo qua **Amazon SNS**, kiểm soát chi phí bằng **AWS Budgets**.
+- Pipeline **DevSecOps** trên GitHub Actions và một lệnh dọn sạch tài nguyên để chi phí về 0 USD.
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+### Nội dung
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+1. [Giới thiệu](5.1-workshop-overview/)
+2. [Các bước chuẩn bị](5.2-prerequiste/)
+3. [Triển khai hạ tầng bằng Terraform](5.3-deploy-infrastructure/)
+4. [Tài khoản Cognito và kiểm thử API](5.4-cognito-api/)
+5. [Đưa frontend lên S3 + CloudFront](5.5-frontend/)
+6. [Bảo mật: WAF và pipeline DevSecOps](5.6-security/)
+7. [Giám sát, kiểm thử và chi phí](5.7-monitoring/)
+8. [Dọn dẹp tài nguyên](5.8-cleanup/)
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+### Minh chứng sản phẩm chạy thực tế
 
-#### Nội dung
-
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+- **Video demo:** *(nhóm bổ sung link video)*
+- **Link sản phẩm (CloudFront):** *(nhóm bổ sung khi demo)*

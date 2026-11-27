@@ -1,108 +1,141 @@
 ---
 title: "Bản đề xuất"
-date: 2024-01-01
+date: 2026-09-14
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# SECURETABLE – HỆ THỐNG QUẢN LÝ NHÀ HÀNG AN TOÀN TRÊN AWS
+### Giải pháp AWS Serverless cho gọi món, quản lý kho và thu chi của quán ăn nhỏ
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 1. Tóm tắt điều hành
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+SecureTable là ứng dụng web chạy trên tablet giúp quán ăn gia đình và nhà hàng nhỏ (5–20 nhân viên) gọi món, điều phối bếp, trừ kho theo công thức và ghi nhận thu chi. Hệ thống được xây hoàn toàn bằng dịch vụ serverless của AWS tại region Singapore, quản lý 100% bằng Terraform, có pipeline DevSecOps kiểm tra bảo mật trên mọi pull request.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Điểm nhấn của dự án là **bảo mật nhiều lớp với chi phí thấp**: MFA cho mọi tài khoản, chỉ chủ quán được tạo tài khoản, phân quyền hai tầng cho 5 vai trò, WAF chống SQLi/XSS, audit log cho mọi thao tác nhạy cảm. Chi phí vận hành ước tính **khoảng 1,5–2,1 USD/tháng**, dưới trần ngân sách 10 USD/tháng của nhóm.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+### 2. Tuyên bố vấn đề
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+**Vấn đề hiện tại**
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+Khảo sát các quán ăn gia đình và một đầu bếp đang làm tại quán cho thấy năm vấn đề lặp lại:
+- Gọi món bằng lời nói và sổ tay, giờ cao điểm dễ nhầm bàn, sót món.
+- Không biết tồn kho thực tế, đến khi bếp báo hết nguyên liệu thì khách đã gọi món.
+- Tính tiền bằng máy tính bỏ túi, không có dấu vết ai mở, sửa, huỷ hoá đơn, dễ thất thoát doanh thu.
+- Thu chi không rõ ràng, cuối tháng không biết lãi lỗ.
+- Dữ liệu kinh doanh nằm trong file dùng chung, không phân quyền, không có bảo vệ.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+**Giải pháp**
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+Nhân viên dùng tablet để gọi món. Đơn hàng đi thẳng tới màn hình bếp. Khi bếp bấm "Đã phục vụ", hệ thống tự trừ kho theo công thức món. Thu ngân đóng hoá đơn và doanh thu được ghi vào sổ thu chi theo ngày. Mỗi người chỉ thấy và làm được đúng phần việc của vai trò mình (ADMIN, INVENTORY, RECEPTION, WAITER, KITCHEN). Mọi thao tác nhạy cảm đều được ghi audit log.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+**Lợi ích và hoàn vốn đầu tư (ROI)**
+- Giảm nhầm món và sót món nhờ đơn điện tử đi thẳng tới bếp.
+- Biết tồn kho theo thời gian thực, cảnh báo trước khi hết nguyên liệu.
+- Hạn chế gian lận nhờ audit log và phân quyền.
+- Chi phí đám mây khoảng 2 USD/tháng, không cần mua máy chủ. Quán chỉ cần tablet sẵn có.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+### 3. Kiến trúc giải pháp
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+![Sơ đồ kiến trúc SecureTable](../../static/images/2-Proposal/securetable-architecture.png)
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+Kiến trúc gồm ba lớp:
+- **Lớp biên**: CloudFront phục vụ giao diện, API Gateway nhận request, WAF lọc request độc hại.
+- **Lớp xử lý**: Cognito xác thực người dùng, 6 hàm Lambda xử lý nghiệp vụ.
+- **Lớp dữ liệu**: DynamoDB và S3.
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+CloudWatch, CloudTrail, SNS và AWS Budgets lo phần giám sát và cảnh báo.
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+**Dịch vụ AWS sử dụng**
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+| Dịch vụ | Vai trò |
+| --- | --- |
+| Amazon CloudFront | Phân phối giao diện React và ảnh món qua HTTPS, thêm security headers |
+| Amazon S3 | 3 bucket private: `frontend`, `assets`, `backup` (Glacier sau 90 ngày) |
+| Amazon Cognito | User Pool, MFA TOTP, 5 nhóm vai trò, chỉ admin tạo tài khoản |
+| Amazon API Gateway | REST API, Cognito authorizer, throttling 50 rps / burst 100 |
+| AWS WAF | Managed Rules (Common, SQLi, Known Bad Inputs) + rate limit theo IP, bật khi pentest/demo |
+| AWS Lambda | 6 hàm Python: Menu, Orders, Inventory, Staff, Finance, Audit |
+| Amazon DynamoDB | 5 bảng on-demand + GSI `status_created_at_idx`, PITR |
+| AWS IAM | Role riêng cho từng Lambda theo nguyên tắc quyền tối thiểu |
+| Amazon CloudWatch, AWS CloudTrail | Log, metric, dashboard, alarm; kiểm toán API |
+| Amazon SNS, AWS Budgets | Gửi cảnh báo email; ngân sách 10 USD/tháng |
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+**Thiết kế thành phần**
+- **Giao diện**: React build tĩnh lưu ở S3, chỉ đọc được qua CloudFront (Origin Access Control).
+- **Định danh**: Cognito cấp JWT có claim `cognito:groups`. Cognito authorizer chỉ kiểm tra token hợp lệ. Decorator `@require_roles` trong Lambda kiểm tra vai trò (sai vai trò trả 403).
+- **Dữ liệu**: các bảng `orders`, `menu_items`, `inventory`, `daily_finance`, `audit_logs` dùng chung khóa phân vùng `restaurant_id`. Màn hình bếp truy vấn GSI theo trạng thái và thời gian. Thao tác "Đã phục vụ" dùng giao dịch `TransactWriteItems` để vừa cập nhật đơn vừa trừ kho.
+- **Giám sát**: alarm lỗi 5xx và request tăng đột biến gửi qua SNS. AWS Budgets cảnh báo ở mốc 50%, 80% và 100% ngân sách.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+### 4. Triển khai kỹ thuật
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+**Các giai đoạn triển khai**
+1. **Khảo sát và chọn đề tài** (tuần 3–4): khảo sát doanh nghiệp và gia đình, đối chiếu với yêu cầu tốt nghiệp.
+2. **Thiết kế và bản hạ tầng đầu tiên** (tuần 5–6): học bảo mật AWS và Terraform, dựng thử kiến trúc 3-tier.
+3. **Chuyển sang serverless** (tuần 7–8): dựng 7 module Terraform, rà soát bảo mật, đưa pipeline DevSecOps vào CI.
+4. **Đấu nối, kiểm thử, demo** (tuần 9–12): viết Lambda và các route API, đưa frontend lên CloudFront, giám sát, pentest WAF, diễn tập khôi phục.
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+**Yêu cầu kỹ thuật**
+- Terraform ≥ 1.9, AWS Provider 5.x; AWS CLI v2; Python 3.12 cho Lambda; Node.js 20 cho frontend (React + Vite).
+- GitHub Actions: gitleaks, Checkov, Trivy, Bandit, Flake8, pytest, `terraform fmt/validate/test`.
+- Script PowerShell `deploy_and_test.ps1` (triển khai và kiểm tra) và `nuke_and_teardown.ps1` (dọn sạch về 0 USD).
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+### 5. Lộ trình & mốc triển khai
+
+| Mốc | Thời gian | Kết quả |
+| --- | --- | --- |
+| Chọn đề tài | 29/09 – 07/10/2026 | Khảo sát, phân tích, ma trận yêu cầu → minh chứng |
+| Hạ tầng v1 (3-tier) | 19 – 25/10/2026 | Module Terraform VPC, EC2, RDS, Secrets |
+| Chuyển serverless | 26/10 – 04/11/2026 | 7 module serverless, sơ đồ kiến trúc v1.0.0 |
+| Rà soát bảo mật + CI | 05 – 06/11/2026 | MFA, chỉ admin tạo user, 10 test IaC, CI chặn |
+| Đấu nối + demo | 24 – 27/11/2026 | Lambda, route API, CloudFront, giám sát, pentest |
+| Nộp bài | 30/11/2026 | Báo cáo song ngữ, summary .md, architecture .xml |
+
+### 6. Ước tính ngân sách
+
+Giả định một nhà hàng chạy thử: 15 tài khoản, khoảng 200 đơn mỗi ngày, khoảng 200.000 request API mỗi tháng. Đơn giá lấy từ AWS Price List, region Singapore, tháng 11/2026.
+
+| Dịch vụ | USD/tháng |
+| --- | --- |
+| API Gateway REST (0,2 triệu request × 4,25 USD) | 0,85 |
+| Lambda (trong mức miễn phí) | 0,00 |
+| DynamoDB on-demand + PITR | 0,25 |
+| S3 (1,2 GB) | 0,04 |
+| CloudFront (trong mức miễn phí 1 TB) | 0,00 |
+| Cognito (15 MAU) | 0,00 |
+| CloudWatch (0,5 GB log, alarm, dashboard) | 0,36 |
+| CloudTrail, SNS, Budgets | 0,00 |
+| **Tổng khi WAF tắt** | **≈ 1,50** |
+| WAF bật 2 ngày (pentest + demo) | ≈ 0,60 |
+| **Tổng tháng có pentest/demo** | **≈ 2,10** |
+
+Nếu bật WAF suốt tháng, riêng WAF tốn khoảng 9,10 USD (5 USD Web ACL và 4 rule). Vì vậy WAF được điều khiển bằng cờ `enable_waf`.
+
+Bảng dự toán AWS Pricing Calculator: *(nhóm bổ sung link)*.
+
+### 7. Đánh giá rủi ro
+
+**Ma trận rủi ro**
+
+| Rủi ro | Ảnh hưởng | Xác suất |
+| --- | --- | --- |
+| Vượt ngân sách (bật WAF, quên dọn tài nguyên) | Trung bình | Trung bình |
+| Lộ access key / secret | Cao | Thấp |
+| Nhân viên sai vai trò truy cập dữ liệu chủ quán | Cao | Trung bình |
+| Tấn công SQLi/XSS, brute-force đăng nhập | Cao | Thấp |
+| Mất dữ liệu do xoá nhầm | Cao | Thấp |
+
+**Chiến lược giảm thiểu**
+- **Chi phí**: AWS Budgets ở mốc 50/80/100%, WAF bật theo cờ, script nuke chạy sau mỗi buổi thực hành.
+- **Secret**: gitleaks quét toàn bộ lịch sử Git trong CI, không lưu credential trong code, hướng tới deploy bằng OIDC.
+- **Phân quyền**: decorator `@require_roles` có unit test, IAM role riêng cho từng Lambda.
+- **Tấn công web**: WAF Managed Rules, throttling và rate limit theo IP, Cognito MFA.
+- **Dữ liệu**: DynamoDB PITR, S3 versioning, hạ tầng dựng lại được bằng Terraform.
+
+**Kế hoạch dự phòng**: khi có sự cố, chạy `nuke_and_teardown.ps1` rồi `deploy_and_test.ps1` để dựng lại toàn bộ hạ tầng. Dữ liệu được khôi phục từ PITR hoặc từ bản export trong bucket `backup`.
+
+### 8. Kết quả kỳ vọng
+
+- **Cải tiến kỹ thuật**: một kiến trúc serverless hoàn chỉnh, 100% IaC, CI/CD có kiểm thử bảo mật, giám sát và cảnh báo tự động, chi phí dưới 10 USD/tháng.
+- **Giá trị dài hạn**: nền tảng mở rộng được cho nhiều chi nhánh (multi-tenant theo `restaurant_id`). Đây cũng là mẫu tham khảo cho các dự án serverless có yêu cầu bảo mật cao với ngân sách nhỏ.

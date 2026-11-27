@@ -1,19 +1,32 @@
 ---
-title : "Giới thiệu"
-date : 2024-01-01 
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Giới thiệu"
+date: 2026-11-23
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint
+### Bài toán
+Quán ăn nhỏ gọi món bằng lời nói và sổ tay, không biết tồn kho, tính tiền bằng máy tính bỏ túi và không có dấu vết ai sửa hoá đơn. SecureTable số hoá luồng **gọi món → bếp → trừ kho → thanh toán** cho 5 vai trò (ADMIN, INVENTORY, RECEPTION, WAITER, KITCHEN), với bảo mật nhiều lớp và chi phí dưới 10 USD/tháng.
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+### Kiến trúc
 
-#### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
+![Kiến trúc SecureTable](../../../static/images/2-Proposal/securetable-architecture.png)
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+| Bước | Luồng xử lý |
+| --- | --- |
+| 1 | Client tải giao diện React qua CloudFront; S3 `frontend`/`assets` private, chỉ đọc qua OAC |
+| 2 | Đăng nhập Cognito (mật khẩu + MFA TOTP), nhận JWT có claim `cognito:groups` |
+| 3 | Client gọi REST API kèm JWT; API Gateway throttling 50 rps/burst 100; WAF lọc SQLi/XSS khi bật |
+| 4 | Cognito authorizer xác thực JWT |
+| 5–6 | API Gateway gọi Lambda; mỗi Lambda có IAM role riêng; decorator `@require_roles` trả 403 khi sai vai trò |
+| 7 | Lambda đọc/ghi DynamoDB (5 bảng + GSI); "Đã phục vụ" dùng giao dịch để trừ kho |
+| 8–9 | Ảnh món lưu ở S3 `assets`; dữ liệu audit/báo cáo xuất sang S3 `backup` (Glacier sau 90 ngày) |
+| 10–13 | Log/metric về CloudWatch; CloudTrail ghi API quản trị; alarm → SNS → email |
+| 14 | AWS Budgets cảnh báo 50/80/100% ngân sách 10 USD |
+
+### Vì sao chọn các dịch vụ này
+- **Serverless (Lambda, API Gateway, DynamoDB on-demand)**: không có máy chủ chạy 24/7; bản 3-tier EC2 + RDS + NAT Gateway nhóm dựng thử tốn ước tính 20–50 USD/tháng.
+- **Cognito**: OAuth 2.0/JWT, MFA, nhóm người dùng có sẵn, miễn phí với dưới 10.000 MAU.
+- **CloudFront + S3 OAC**: HTTPS, cache tại edge, bucket không cần public.
+- **WAF bật theo nhu cầu**: 5 USD/Web ACL + 1 USD/rule mỗi tháng, chỉ bật khi pentest/demo.

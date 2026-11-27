@@ -1,57 +1,30 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-10-05
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Learn the main serverless building blocks: AWS Lambda, Amazon API Gateway, AWS SAM, Amazon Cognito.
+- Analyse more surveys from other user groups and map them against the program's graduation requirements to settle the topic.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| Mon | - Serverless workshop – Lambda with S3 and DynamoDB:<br>&emsp;+ Lambda resizing images when new objects land in S3<br>&emsp;+ IAM policy for Lambda to access S3<br>&emsp;+ Lambda writing data to DynamoDB | 10/05/2026 | 10/05/2026 | [000078 – Lambda + S3](https://000078.awsfcaj.com/2-resize-image-function/)<br>[000078 – Lambda + DynamoDB](https://000078.awsfcaj.com/3-write-data-to-dynaomodb/) |
+| Tue | - Wrote a Node.js script reading the Excel survey files → JSON<br>- Analysed each user group: eatery cook, homemaker, parent in education, farming<br>- Proposed lightweight fixes first, an AWS project second, and how to measure impact | 10/06/2026 | 10/06/2026 | Survey reader script<br>Analysis document |
+| Wed | - Read the graduation requirements (Junior/Middle level)<br>- Built a requirement → implementation → evidence matrix<br>- Compared option A (ingredient management) and option B (EVG)<br>- 9–10 week plan and a recommendation | 10/07/2026 | 10/07/2026 | Workshop requirements<br>Requirement mapping document<br>[AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
+| Thu | - Serverless with Lambda, API Gateway and SAM workshop:<br>&emsp;+ Deployed frontend and backend with SAM<br>&emsp;+ Loaded DynamoDB data, tested the configuration<br>&emsp;+ Realtime feature and image processing with Lambda | 10/08/2026 | 10/08/2026 | [000066 – Lambda, API Gateway, SAM](https://000066.awsfcaj.com/) |
+| Fri | - Serverless – Authentication with Amazon Cognito workshop:<br>&emsp;+ Created a User Pool<br>&emsp;+ API + Lambda protected by a Cognito authorizer<br>&emsp;+ Tested sign-in from the frontend | 10/09/2026 | 10/09/2026 | [000081 – 2. Create User Pool](https://000081.awsfcaj.com/2-create-user-pool/)<br>[000081 – 3. Create API and Lambda function](https://000081.awsfcaj.com/3-create-api-and-lambda-function/)<br>[000081 – 4. Test with Front-end](https://000081.awsfcaj.com/4-test-front-end/)<br>[AWS Docs – Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html)<br>[AWS Docs – Cognito user pool authorizer for REST APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html) |
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Wrote a Lambda that processes images when new files land in S3 and a Lambda that writes to DynamoDB, each with its own IAM policy.
+- Deployed a sample serverless app with AWS SAM (API Gateway + Lambda + DynamoDB + frontend).
+- Created a Cognito User Pool and protected an API with a Cognito authorizer, tested with a frontend.
+- Analysed 3 new surveys (eatery cook, homemaker, parent working in education, …) with a script reading the Excel files.
+- Built a *requirement → implementation → evidence* matrix; chose **ingredient/restaurant management** (option A) as the preferred topic.

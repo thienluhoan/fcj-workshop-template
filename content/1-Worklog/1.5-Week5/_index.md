@@ -1,57 +1,32 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-10-12
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 5 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Understand how AWS authenticates/authorises a request and use Conditions in IAM.
+- Encrypt data with AWS KMS and audit key usage with CloudTrail.
+- Protect web apps with AWS WAF; manage secrets with Secrets Manager.
+- Apply security best practices to Amazon S3.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| Mon | - IAM Role & Condition workshop:<br>&emsp;+ How AWS authenticates requests, the assume-role process<br>&emsp;+ Created an admin role, configured switch role<br>&emsp;+ Limited switch role by IP and time<br>- Read IAM Security best practices | 10/12/2026 | 10/12/2026 | [000044 – IAM Role & Condition](https://000044.awsfcaj.com/)<br>[IAM best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) |
+| Tue | - Encryption at Rest with AWS KMS workshop:<br>&emsp;+ Policies/roles, groups/users<br>&emsp;+ Created a KMS key, encrypted S3 objects<br>&emsp;+ CloudTrail + Athena to audit key usage<br>&emsp;+ Sharing encrypted data | 10/13/2026 | 10/13/2026 | [000033 – KMS](https://000033.awsfcaj.com/)<br>[KMS pricing](https://aws.amazon.com/kms/pricing/) |
+| Wed | - AWS Web Application Firewall workshop:<br>&emsp;+ Web ACL with managed rules<br>&emsp;+ Custom rule, advanced custom rule<br>&emsp;+ Rule testing, request logging<br>- Read WAF/DDoS fundamentals | 10/14/2026 | 10/14/2026 | [000026 – AWS WAF](https://000026.awsfcaj.com/3-useawswaf/)<br>[WAF pricing](https://aws.amazon.com/waf/pricing/) |
+| Thu | - Using AWS Secrets Manager with Amazon RDS and AWS Fargate workshop:<br>&emsp;+ Stored RDS credentials in Secrets Manager<br>&emsp;+ Fargate app reading the secret at runtime<br>&emsp;+ Secret rotation | 10/15/2026 | 10/15/2026 | [000096 – 1. Introduction](https://000096.awsfcaj.com/1-intro/)<br>[000096 – 3. Using on RDS](https://000096.awsfcaj.com/3-rds-phase/)<br>[000096 – 4. Using on Fargate](https://000096.awsfcaj.com/4-fargate-phase/)<br>[AWS Secrets Manager – Pricing](https://aws.amazon.com/secrets-manager/pricing/) |
+| Fri | - S3 Security Best Practices workshop:<br>&emsp;+ Enforce HTTPS, enforce SSE-S3<br>&emsp;+ Block public ACLs, S3 Block Public Access<br>&emsp;+ Restrict access through a VPC endpoint<br>&emsp;+ AWS Config to detect public buckets, IAM Access Analyzer | 10/16/2026 | 10/16/2026 | [000069 – S3 Security Best Practices](https://000069.awsfcaj.com/) |
 
 ### Week 5 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Created IAM roles with conditions limiting switch role by IP and by time; understand the explicit-deny rule.
+- Created a KMS key, encrypted S3 objects with SSE-KMS and queried CloudTrail with Athena to see who used the key.
+- Created a Web ACL with managed rules, custom rules, a rate-based rule and logging; understand WAF pricing.
+- Stored and rotated database credentials with Secrets Manager.
+- Applied 7 S3 security controls: enforce HTTPS, enforce encryption, block public ACLs, Block Public Access, restrict via VPC endpoint, AWS Config, IAM Access Analyzer.

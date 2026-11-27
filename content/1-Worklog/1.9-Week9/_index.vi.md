@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+date: 2026-11-09
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hiểu sâu GitHub Actions và giải thích được từng dòng của pipeline DevSecOps nhóm đang dùng.
+- Biết mỗi công cụ quét (gitleaks, Checkov, Trivy, Bandit) bắt được gì và bỏ sót gì.
+- Chuẩn bị cho CI tự deploy lên AWS bằng OIDC, không cần access key.
+- Nâng chất lượng test IaC và kiểm tra ngay trên máy trước khi commit.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Đọc GitHub Actions Documentation<br>- Làm khóa GitHub Skills (Hello GitHub Actions, Test with Actions)<br>- Đọc lại `devsecops.yml` từng dòng | 09/11/2026 | 09/11/2026 | [GitHub Actions Documentation](https://docs.github.com/en/actions)<br>[GitHub Skills](https://skills.github.com)<br>Workflow của nhóm<br>[Martin Fowler – Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html) |
+| 3 | - Đọc Security hardening for GitHub Actions<br>- Đọc OWASP Top 10 CI/CD Security Risks<br>- Lập checklist tự review workflow của nhóm | 10/11/2026 | 10/11/2026 | [GitHub – Security hardening for GitHub Actions](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)<br>[OWASP Top 10 CI/CD Security Risks](https://owasp.org/www-project-top-10-ci-cd-security-risks/)<br>[SLSA – Supply-chain Levels for Software Artifacts](https://slsa.dev) |
+| 4 | - Đọc tài liệu gitleaks, Checkov, Trivy, Bandit<br>- Đối chiếu pipeline với OWASP DevSecOps Guideline<br>- Ghi bảng: mỗi công cụ bắt được gì / bỏ sót gì | 11/11/2026 | 11/11/2026 | [Gitleaks](https://github.com/gitleaks/gitleaks)<br>[Checkov](https://www.checkov.io)<br>[Trivy](https://trivy.dev)<br>[Bandit](https://bandit.readthedocs.io)<br>[OWASP DevSecOps Guideline](https://owasp.org/www-project-devsecops-guideline/) |
+| 5 | - Đọc configure-aws-credentials và tài liệu OIDC của GitHub<br>- Thiết kế IAM OIDC provider + role cho CI<br>- Viết trust policy khóa `aud` và `sub` | 12/11/2026 | 12/11/2026 | [aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials)<br>[GitHub – Configuring OIDC in AWS](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)<br>[IAM Security best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) |
+| 6 | - Đọc Terraform Tests và Mocking<br>- Tìm hiểu TFLint<br>- Tìm hiểu pre-commit (fmt, gitleaks chạy trước commit) | 13/11/2026 | 13/11/2026 | [Terraform – Tests](https://developer.hashicorp.com/terraform/language/tests)<br>[Terraform – Mocking](https://developer.hashicorp.com/terraform/language/tests/mocking)<br>[TFLint](https://github.com/terraform-linters/tflint)<br>[pre-commit](https://pre-commit.com)<br>Test của dự án |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Giải thích được 4 job của `devsecops.yml`: Secrets & IaC Security, Backend Python, Terraform, Frontend Build & Audit.
+- Lập checklist tự review pipeline theo OWASP Top 10 CI/CD Security Risks và hướng dẫn security hardening của GitHub.
+- Nắm cấu hình và giới hạn của gitleaks, Checkov, Trivy, Bandit; đối chiếu pipeline với OWASP DevSecOps Guideline.
+- Hiểu luồng OIDC GitHub → AWS STS và cách viết trust policy khóa cả `aud` lẫn `sub`.
+- Nắm `terraform test` (run block, mock provider, `expect_failures`), TFLint và pre-commit hook.

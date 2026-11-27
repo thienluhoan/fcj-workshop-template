@@ -1,44 +1,40 @@
 ---
 title: "Internship Report"
-date: 2024-01-01
+date: 2026-09-14
 weight: 1
 chapter: false
 ---
 
-    
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Full name:** Nguyen Tien Thanh
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Student ID:** SE205166
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **Phone number:** 0888080206
 
-&emsp; **Major:** Information Technology
+&emsp; **Email:** ntienthanh822@gmail.com
 
-&emsp; **Class:** AWS082025
+&emsp; **University:** FPT University Ho Chi Minh City
 
-&emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
+&emsp; **Major:** Information Technology – Information Assurance
 
-&emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
+&emsp; **Internship company:** Amazon Web Services Vietnam Co., Ltd.
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship position:** Workforce Bootcamp - First Cloud AI Journey (Cloud Architecture & DevSecOps)
 
-![Your profile picture](/images/avatar.png)
+&emsp; **Internship period:** From 09/14/2026 to 12/14/2026
 
-### Report Content
+![Avatar|220](../static/images/avatar.png)
 
-1.  [Worklog](1-Worklog/)
-2.  [Proposal](2-Proposal/)
-3.  [BlogsPosted](3-BlogsPosted/)
-4.  [Events Participated](4-EventParticipated/)
-5.  [Workshop](5-Workshop/)
-6.  [Self-evaluation](6-Self-evaluation/)
-7.  [Sharing and Feedback](7-Feedback/)
+### Report contents
+
+1. [Worklog](1-worklog/)
+2. [Proposal](2-proposal/)
+3. [Blogs Posted](3-blogsposted/)
+4. [Events Participated](4-eventparticipated/)
+5. [Workshop](5-workshop/)
+6. [Self-Assessment](6-self-evaluation/)
+7. [Sharing and Feedback](7-feedback/)
