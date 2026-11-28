@@ -1,33 +1,40 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-11-27
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai SEAL, nền tảng chấm thi hackathon, trên AWS
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+**SEAL** là nền tảng web vận hành trọn một cuộc thi hackathon sinh viên: đăng ký đội, vòng thi và đồng hồ, nộp bài, chấm theo rubric, kết quả và giải thưởng. Giám khảo có thể nhờ **trợ lý AI** đọc repository GitHub của đội và đề xuất đánh giá ban đầu, sau đó giám khảo tự xem lại.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Workshop này dựng lại môi trường production của SEAL trên AWS từng bước, bằng các template **AWS CloudFormation** do nhóm viết. Kết thúc workshop, bạn có:
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+- frontend React trên **Amazon S3**, phân phối qua **Amazon CloudFront**, bảo vệ bằng **AWS WAF**, tên miền riêng trên **Amazon Route 53** và chứng chỉ **AWS Certificate Manager**;
+- API Spring Boot trên **Amazon EC2** trong **Auto Scaling group**, sau **Application Load Balancer**, nằm trong private subnet của một **Amazon VPC** riêng;
+- database **Amazon RDS for MySQL** trong subnet cô lập;
+- luồng AI bất đồng bộ: hàng đợi **Amazon SQS** có dead-letter queue và **AWS Lambda** worker gọi DeepSeek API;
+- email giao dịch qua **Amazon SES**;
+- giám sát bằng alarm **Amazon CloudWatch**, **Amazon SNS**, **AWS Budgets** và ghi vết bằng **AWS CloudTrail**;
+- CI/CD bằng **GitHub Actions**: đẩy image lên **Amazon ECR**, triển khai bằng **AWS Systems Manager**, đăng nhập AWS qua OIDC, không dùng access key dài hạn.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Tổng quan](5.1-overview/)
+2. [Chuẩn bị](5.2-prerequisites/)
+3. [Kiến trúc và luồng dữ liệu](5.3-architecture/)
+4. [Lớp mạng và dữ liệu](5.4-network-data/)
+5. [Compute và origin](5.5-compute-origin/)
+6. [Edge và bảo mật](5.6-edge-security/)
+7. [AI worker](5.7-ai-worker/)
+8. [Email với SES](5.8-email-ses/)
+9. [CI/CD với GitHub Actions](5.9-cicd/)
+10. [Kiểm thử và xác minh](5.10-testing-validation/)
+11. [Chi phí và tối ưu](5.11-cost/)
+12. [Xử lý sự cố và bài học](5.12-troubleshooting/)
+13. [Dọn dẹp tài nguyên](5.13-cleanup/)
+14. [Demo](5.14-demo/)

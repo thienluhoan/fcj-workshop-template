@@ -1,31 +1,40 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-11-27
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Deploying SEAL, a hackathon judging platform, on AWS
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+**SEAL** is a web platform for running a student hackathon end to end: team registration, rounds and timers, submissions, judging with rubrics, results and awards. Judges can also ask an **AI assistant** to read a team's GitHub repository and propose a first evaluation, which the judge then reviews.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+This workshop rebuilds the production deployment of SEAL on AWS, step by step, using the **AWS CloudFormation** templates the team wrote. At the end you will have:
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+- a React frontend on **Amazon S3** served through **Amazon CloudFront**, protected by **AWS WAF** and a custom domain in **Amazon Route 53** with **AWS Certificate Manager** certificates;
+- a Spring Boot API on **Amazon EC2** in an **Auto Scaling group** behind an **Application Load Balancer**, in private subnets of a dedicated **Amazon VPC**;
+- an **Amazon RDS for MySQL** database in isolated subnets;
+- an asynchronous AI pipeline: **Amazon SQS** queues with dead-letter queues and an **AWS Lambda** worker that calls the DeepSeek API;
+- transactional email through **Amazon SES**;
+- monitoring with **Amazon CloudWatch** alarms, **Amazon SNS** and **AWS Budgets**, auditing with **AWS CloudTrail**;
+- a CI/CD pipeline in **GitHub Actions** that pushes images to **Amazon ECR** and rolls them out with **AWS Systems Manager**, signed in through OIDC without long-lived keys.
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Overview](5.1-overview/)
+2. [Prerequisites](5.2-prerequisites/)
+3. [Architecture and data flow](5.3-architecture/)
+4. [Network and data layer](5.4-network-data/)
+5. [Compute and origin](5.5-compute-origin/)
+6. [Edge and security](5.6-edge-security/)
+7. [AI worker](5.7-ai-worker/)
+8. [Email with SES](5.8-email-ses/)
+9. [CI/CD with GitHub Actions](5.9-cicd/)
+10. [Testing and validation](5.10-testing-validation/)
+11. [Cost and optimization](5.11-cost/)
+12. [Troubleshooting and lessons learned](5.12-troubleshooting/)
+13. [Clean up](5.13-cleanup/)
+14. [Demo](5.14-demo/)
